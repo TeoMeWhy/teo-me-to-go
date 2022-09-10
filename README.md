@@ -10,10 +10,10 @@ Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolvere
 
 - [Téo Me To Go](#téo-me-to-go)
 - [Índice](#índice)
-- [capitulo_01](#capitulo_01)
 
-
-# [capitulo_01](/capitulo_01/)
-  ├── [01_primeiro_programa.go](/capitulo_01/01_primeiro_programa.go)
-  └── [exercicios](/capitulo_01/exercicios/)
-      └── [ex_01.go](/capitulo_01/exercicios/ex_01.go)
+```bash
+capitulo_01
+  ├── 01_primeiro_programa.go
+  └── exercicios
+      └── ex_01.go
+```
