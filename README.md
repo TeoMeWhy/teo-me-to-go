@@ -14,4 +14,6 @@ Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolvere
 
 
 # [capitulo_01](/capitulo_01/)
-  └── [01_primeiro_programa.go](/capitulo_01/01_primeiro_programa.go)
+  ├── [01_primeiro_programa.go](/capitulo_01/01_primeiro_programa.go)
+  └── [exercicios](/capitulo_01/exercicios/)
+      └── [ex_01.go](/capitulo_01/exercicios/ex_01.go)
