@@ -6,3 +6,14 @@ Repositório destinado a estudos de GoLang utilizando o livro [Introdução à L
 
 Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolverei durante meus estudos, em ordem conforme apresentados no livro.
 
+**Este não é um curso criado por alguém experiente na linguagem.** Meu foco é documentar meu aprendizado para que outras pessoas possam aprender à sua maneira.
+
+# Índice
+
+- [Téo Me To Go](#téo-me-to-go)
+- [Índice](#índice)
+- [capitulo_01](#capitulo_01)
+
+
+# [capitulo_01](/capitulo_01/)
+  └── [01_primeiro_programa.go](/capitulo_01/01_primeiro_programa.go)
