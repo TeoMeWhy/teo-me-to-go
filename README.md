@@ -20,5 +20,6 @@ capitulo_01
 └── exercicios
     ├── ex_01.go
     ├── ex_02.go
-    └── ex_03.go
+    ├── ex_03.go
+    └── ex_04.go
 ```
