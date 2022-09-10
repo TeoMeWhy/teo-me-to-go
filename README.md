@@ -12,7 +12,7 @@ Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolvere
 - [Índice](#índice)
 - [Capítulo 01](#capítulo-01)
 
-# Capítulo 01
+# [Capítulo 01](capitulo_01/)
 
 ```bash
 capitulo_01
