@@ -16,7 +16,7 @@ Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolvere
 # [Capítulo 01](capitulo_01/)
 
 ```bash
-capitulo_01
+capitulo_01/
 ├── 01_primeiro_programa.go
 └── exercicios
     ├── ex_01.go
@@ -29,7 +29,15 @@ capitulo_01
 # [Capítulo 02](capitulo_02/)
 
 ```bash
-capitulo_02
+capitulo_02/
 ├── 01_main.go
-└── 02_main.go
+├── 02_main.go
+├── 03_ola_mundo.go
+├── 04_booleanos.go
+└── exercicios
+    ├── ex_01.go
+    ├── ex_02.go
+    ├── ex_03.go
+    ├── ex_04.go
+    └── ex_05.go
 ```
