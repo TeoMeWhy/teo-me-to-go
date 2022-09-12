@@ -30,5 +30,6 @@ capitulo_01
 
 ```bash
 capitulo_02
-└── 01_main.go
+├── 01_main.go
+└── 02_main.go
 ```
