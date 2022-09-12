@@ -11,6 +11,7 @@ Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolvere
 - [Téo Me To Go](#téo-me-to-go)
 - [Índice](#índice)
 - [Capítulo 01](#capítulo-01)
+- [Capítulo 02](#capítulo-02)
 
 # [Capítulo 01](capitulo_01/)
 
@@ -23,4 +24,11 @@ capitulo_01
     ├── ex_03.go
     ├── ex_04.go
     └── ex_05.go
+```
+
+# [Capítulo 02](capitulo_02/)
+
+```bash
+capitulo_02
+└── 01_main.go
 ```
