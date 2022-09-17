@@ -12,6 +12,7 @@ Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolvere
 - [Índice](#índice)
 - [Capítulo 01](#capítulo-01)
 - [Capítulo 02](#capítulo-02)
+- [Capítulo 03](#capítulo-03)
 
 # [Capítulo 01](capitulo_01/)
 
@@ -41,3 +42,17 @@ capitulo_02/
     ├── ex_04.go
     └── ex_05.go
 ```
+
+# [Capítulo 03](capitulo_02/)
+
+```bash
+capitulo_03/
+├── 01_ola_mundo.go
+├── 02_ola_mundo.go
+├── 03_first_second.go
+├── 04_first_second.go
+├── 05_hello.go
+├── 06_my_dog.go
+├── 07_escopo.go
+└── 08_input.go
+``` 
