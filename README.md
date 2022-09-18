@@ -54,5 +54,12 @@ capitulo_03/
 ├── 05_hello.go
 ├── 06_my_dog.go
 ├── 07_escopo.go
-└── 08_input.go
+├── 08_input.go
+└── exercicios
+    ├── ex_01.go
+    ├── ex_02.go
+    ├── ex_03.go
+    ├── ex_04.go
+    ├── ex_05.go
+    └── ex_06.go
 ``` 
