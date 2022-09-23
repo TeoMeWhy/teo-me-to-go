@@ -13,6 +13,7 @@ Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolvere
 - [Capítulo 01](#capítulo-01)
 - [Capítulo 02](#capítulo-02)
 - [Capítulo 03](#capítulo-03)
+- [Capítulo 04](#capítulo-04)
 
 # [Capítulo 01](capitulo_01/)
 
@@ -43,7 +44,7 @@ capitulo_02/
     └── ex_05.go
 ```
 
-# [Capítulo 03](capitulo_02/)
+# [Capítulo 03](capitulo_03/)
 
 ```bash
 capitulo_03/
@@ -62,4 +63,16 @@ capitulo_03/
     ├── ex_04.go
     ├── ex_05.go
     └── ex_06.go
-``` 
+```
+
+# [Capítulo 04](capitulo_04/)
+
+```bash
+capitulo_04/
+├── 01_print.go
+├── 02_print.go
+├── 03_print.go
+├── 04_print.go
+├── 05_pares.go
+└── 06_case.go
+```
