@@ -74,5 +74,9 @@ capitulo_04/
 ├── 03_print.go
 ├── 04_print.go
 ├── 05_pares.go
-└── 06_case.go
+├── 06_case.go
+└── exercicios
+    ├── ex_01.go
+    ├── ex_02.go
+    └── ex_03.go
 ```
