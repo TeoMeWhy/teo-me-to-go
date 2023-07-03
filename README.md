@@ -6,77 +6,27 @@ Buscarei adicionar neste repositporio os exemplos e exercícios que desenvolvere
 
 **Este não é um curso criado por alguém experiente na linguagem.** Meu foco é documentar meu aprendizado para que outras pessoas possam aprender à sua maneira.
 
+*Repositório reiniciado em 2023-07-03
+
 # Índice
 
 - [Téo Me To Go](#téo-me-to-go)
 - [Índice](#índice)
-- [Capítulo 01](#capítulo-01)
-- [Capítulo 02](#capítulo-02)
-- [Capítulo 03](#capítulo-03)
-- [Capítulo 04](#capítulo-04)
 
-# [Capítulo 01](capitulo_01/)
+## Capítulo 01
 
 ```bash
-capitulo_01/
-├── 01_primeiro_programa.go
-└── exercicios
-    ├── ex_01.go
-    ├── ex_02.go
-    ├── ex_03.go
-    ├── ex_04.go
-    └── ex_05.go
-```
-
-# [Capítulo 02](capitulo_02/)
-
-```bash
-capitulo_02/
-├── 01_main.go
-├── 02_main.go
-├── 03_ola_mundo.go
-├── 04_booleanos.go
-└── exercicios
-    ├── ex_01.go
-    ├── ex_02.go
-    ├── ex_03.go
-    ├── ex_04.go
-    └── ex_05.go
-```
-
-# [Capítulo 03](capitulo_03/)
-
-```bash
-capitulo_03/
-├── 01_ola_mundo.go
-├── 02_ola_mundo.go
-├── 03_first_second.go
-├── 04_first_second.go
-├── 05_hello.go
-├── 06_my_dog.go
-├── 07_escopo.go
-├── 08_input.go
-└── exercicios
-    ├── ex_01.go
-    ├── ex_02.go
-    ├── ex_03.go
-    ├── ex_04.go
-    ├── ex_05.go
-    └── ex_06.go
-```
-
-# [Capítulo 04](capitulo_04/)
-
-```bash
-capitulo_04/
-├── 01_print.go
-├── 02_print.go
-├── 03_print.go
-├── 04_print.go
-├── 05_pares.go
-├── 06_case.go
-└── exercicios
-    ├── ex_01.go
-    ├── ex_02.go
-    └── ex_03.go
+cap01/
+├── ex01
+│   └── main.go
+├── ex02
+│   └── main.go
+├── ex03
+│   └── main.go
+├── ex04
+│   └── main.go
+├── ex05
+│   └── main.go
+└── ola_mundo
+    └── main.go
 ```
