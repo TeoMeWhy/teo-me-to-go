@@ -2,11 +2,11 @@
 
 ## Índice
 
-[Etapa 1](#etapa-1-fundamentos-do-golang)
-[Etapa 2](#etapa-2-trabalhando-com-pacotes-e-gerenciamento-de-dependências)
-[Etapa 3](#etapa-3-concorrência-e-paralelismo)
-[Etapa 4](#etapa-4-banco-de-dados-e-persistência)
-[Etapa 5](#etapa-5-segurança-e-autenticação)
+- [Etapa 1](#etapa-1-fundamentos-do-golang)
+- [Etapa 2](#etapa-2-trabalhando-com-pacotes-e-gerenciamento-de-dependências)
+- [Etapa 3](#etapa-3-concorrência-e-paralelismo)
+- [Etapa 4](#etapa-4-banco-de-dados-e-persistência)
+- [Etapa 5](#etapa-5-segurança-e-autenticação)
 
 ## Etapa 1: Fundamentos do GoLang
 
