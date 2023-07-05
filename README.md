@@ -1,14 +1,19 @@
 # Téo Me To Go
 
-## Índice
+Seja bem-vindo(a) à minha trilha de estudos para GoLang, meu desejo é aprender sobre backend estudando esta linguagem. Para alcançár este objetivo, montei este material de estudos junto ao chatGPT, segue o prompt utilizados:
 
-- [Etapa 1](#etapa-1-fundamentos-do-golang)
-- [Etapa 2](#etapa-2-trabalhando-com-pacotes-e-gerenciamento-de-dependências)
-- [Etapa 3](#etapa-3-concorrência-e-paralelismo)
-- [Etapa 4](#etapa-4-banco-de-dados-e-persistência)
-- [Etapa 5](#etapa-5-segurança-e-autenticação)
+```
+Desejo me tornar um desenvolvedor backend.
+Gostaria de estudar GoLang e preciso de sua ajuda para elaborar um plano de estudo detalhado.
 
-## Etapa 1: Fundamentos do GoLang
+Para cada etapa deste plano, considere um desafio de programação em formato de projeto.
+```
+
+A partir disso, temos as etapas abaixo. Vale lembrar que ao avançarmos os estudos, este plano pode sofrer alterações.
+
+E ah, tudo isso está sendo feio ao vivo na Twitch em meu canal [Téo Me Why](https://www.twitch.tv/teomewhy), sempre às 9AM (UTC-3) de segunda a sexta. Conheça mais sobre mim [aqui](https://github.com/teocalvo).
+
+## Etapa 1: Fundamentos do GoLang (em progresso)
 
 - Aprenda os conceitos básicos da linguagem Go, como sintaxe, tipos de dados, estruturas de controle (if, for, switch), funções e pacotes.
 - Recursos recomendados:
@@ -19,7 +24,7 @@ Utilizaremos o livro [Introdução à Linguagem Go - Crie programas escaláveis 
 
 **Desafio de Projeto: Criar uma aplicação CLI (Command Line Interface)** Crie uma aplicação de linha de comando simples que realiza uma tarefa específica, como calcular estatísticas básicas em um conjunto de dados ou converter unidades de medida. Isso ajudará a aplicar os conceitos básicos aprendidos e a familiarizar-se com a sintaxe e a estrutura do Go.
 
-## Etapa 2: Trabalhando com Pacotes e Gerenciamento de Dependências
+## Etapa 2: Trabalhando com Pacotes e Gerenciamento de Dependências (não iniciada)
 
 - Aprenda a usar pacotes em Go e a importar pacotes de terceiros.
 - Explore o gerenciamento de dependências usando um gerenciador como o `go mod`.
@@ -29,7 +34,7 @@ Utilizaremos o livro [Introdução à Linguagem Go - Crie programas escaláveis 
 
 **Desafio de Projeto: Criar uma API REST Simples** Implemente uma API REST básica que ofereça funcionalidades como criação, leitura, atualização e exclusão (CRUD) de recursos. Use um framework web como o Gin ou o Echo para facilitar o desenvolvimento da API.
 
-## Etapa 3: Concorrência e Paralelismo
+## Etapa 3: Concorrência e Paralelismo (não iniciada)
 
 - Aprenda a trabalhar com goroutines (threads leves) e canais (channels) para escrever código concorrente em Go.
 - Explore técnicas de paralelismo para processar tarefas em paralelo e obter um melhor desempenho.
@@ -39,7 +44,7 @@ Utilizaremos o livro [Introdução à Linguagem Go - Crie programas escaláveis 
 
 **Desafio de Projeto: Desenvolver uma Aplicação de Web Scraping Paralela** Crie uma aplicação que faça web scraping de várias páginas simultaneamente usando goroutines e canais. Isso demonstrará como aproveitar a concorrência e o paralelismo em Go para melhorar a eficiência de operações intensivas em E/S.
 
-## Etapa 4: Banco de Dados e Persistência
+## Etapa 4: Banco de Dados e Persistência (não iniciada)
 
 - Aprenda a usar bancos de dados em Go, como o MySQL, PostgreSQL ou MongoDB.
 - Explore técnicas de persistência, como a criação, leitura, atualização e exclusão de dados (CRUD) em um banco de dados.
@@ -49,7 +54,7 @@ Utilizaremos o livro [Introdução à Linguagem Go - Crie programas escaláveis 
 
 **Desafio de Projeto: Construir um Sistema de Gerenciamento de Tarefas** Crie um sistema de gerenciamento de tarefas que permita criar, atualizar, listar e excluir tarefas em um banco de dados. Use um banco de dados de sua escolha e aplique técnicas adequadas de persistência de dados.
 
-## Etapa 5: Segurança e Autenticação
+## Etapa 5: Segurança e Autenticação (não iniciada)
 
 - Aprenda a implementar recursos de segurança e autenticação em aplicativos Go.
 - Explore a autenticação baseada em token (como JWT) e a proteção de rotas e endpoints.

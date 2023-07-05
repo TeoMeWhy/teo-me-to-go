@@ -1,0 +1,6 @@
+[book]
+authors = ["Téo Calvo"]
+language = "pt"
+multilingual = false
+src = "src"
+title = "Téo me to Go"
