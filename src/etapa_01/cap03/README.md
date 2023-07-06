@@ -2,26 +2,41 @@
 
 ## Exemplos
 
+### Como criamos variáveis em Go:
 ```go
 {{#include exemplo01/main.go}}
 ```
+
+### Alterando valor de da variável
+
+Aqui concatenamos nossa string com outra.
 
 ```go
 {{#include exemplo02/main.go}}
 ```
 
+### Mode de inicialização + atribuição
+
+Podemos criar uma variável com `:=`, ja atribuindo um valor à ela, onde seu tipo é inferido por Go
+
 ```go
 {{#include exemplo03/main.go}}
 ```
+
+### Escopo de variável e funções
+
+A variável `x` é acessada por `f()` pois foi definida no escopo global de nosso programa. E não dentro de `main()`.
 
 ```go
 {{#include exemplo04/main.go}}
 ```
 
+### Definindo constantes
 ```go
 {{#include exemplo05/main.go}}
 ```
 
+### Lendo dados do usuário com `fmt.Scanf()`
 ```go
 {{#include exemplo06/main.go}}
 ```
