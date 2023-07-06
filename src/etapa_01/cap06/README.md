@@ -78,3 +78,33 @@
 ```go
 {{#include ex05/main.go}}
 ```
+
+### Exercício 06
+```go
+{{#include ex06/main.go}}
+```
+
+### Exercício 07
+```go
+{{#include ex07/main.go}}
+```
+
+### Exercício 08
+```go
+{{#include ex08/main.go}}
+```
+
+### Exercício 09
+```go
+{{#include ex09/main.go}}
+```
+
+### Exercício 10
+```go
+{{#include ex10/main.go}}
+```
+
+### Exercício 11
+```go
+{{#include ex11/main.go}}
+```
