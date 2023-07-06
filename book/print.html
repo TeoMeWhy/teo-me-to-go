@@ -1,0 +1,1611 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Téo me to Go</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Início</a></li><li class="chapter-item expanded "><a href="etapa_01/index.html"><strong aria-hidden="true">1.</strong> Etapa 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="etapa_01/cap01/index.html"><strong aria-hidden="true">1.1.</strong> Capítulo 01</a></li><li class="chapter-item expanded "><a href="etapa_01/cap02/index.html"><strong aria-hidden="true">1.2.</strong> Capítulo 02</a></li><li class="chapter-item expanded "><a href="etapa_01/cap03/index.html"><strong aria-hidden="true">1.3.</strong> Capítulo 03</a></li><li class="chapter-item expanded "><a href="etapa_01/cap04/index.html"><strong aria-hidden="true">1.4.</strong> Capítulo 04</a></li><li class="chapter-item expanded "><a href="etapa_01/cap05/index.html"><strong aria-hidden="true">1.5.</strong> Capítulo 05</a></li><li class="chapter-item expanded "><a href="etapa_01/cap06/index.html"><strong aria-hidden="true">1.6.</strong> Capítulo 06</a></li></ol></li><li class="chapter-item expanded "><a href="etapa_02/index.html"><strong aria-hidden="true">2.</strong> Etapa 2</a></li><li class="chapter-item expanded "><a href="etapa_03/index.html"><strong aria-hidden="true">3.</strong> Etapa 3</a></li><li class="chapter-item expanded "><a href="etapa_04/index.html"><strong aria-hidden="true">4.</strong> Etapa 4</a></li><li class="chapter-item expanded "><a href="etapa_05/index.html"><strong aria-hidden="true">5.</strong> Etapa 5</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Téo me to Go</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="téo-me-to-go"><a class="header" href="#téo-me-to-go">Téo Me To Go</a></h1>
+<p>Seja bem-vindo(a) à minha trilha de estudos para GoLang, meu desejo é aprender sobre backend estudando esta linguagem. Para alcançár este objetivo, montei este material de estudos junto ao chatGPT, segue o prompt utilizados:</p>
+<pre><code>Desejo me tornar um desenvolvedor backend.
+Gostaria de estudar GoLang e preciso de sua ajuda para elaborar um plano de estudo detalhado.
+
+Para cada etapa deste plano, considere um desafio de programação em formato de projeto.
+</code></pre>
+<p>A partir disso, temos as etapas abaixo. Vale lembrar que ao avançarmos os estudos, este plano pode sofrer alterações.</p>
+<p>E ah, tudo isso está sendo feio ao vivo na Twitch em meu canal <a href="https://www.twitch.tv/teomewhy">Téo Me Why</a>, sempre às 9AM (UTC-3) de segunda a sexta. Conheça mais sobre mim <a href="https://github.com/teocalvo">aqui</a>.</p>
+<h2 id="etapa-1-fundamentos-do-golang-em-progresso"><a class="header" href="#etapa-1-fundamentos-do-golang-em-progresso">Etapa 1: Fundamentos do GoLang (em progresso)</a></h2>
+<ul>
+<li>Aprenda os conceitos básicos da linguagem Go, como sintaxe, tipos de dados, estruturas de controle (if, for, switch), funções e pacotes.</li>
+<li>Recursos recomendados:
+<ul>
+<li><a href="https://tour.golang.org/welcome/1">Tour pelo Go</a>: Um tutorial interativo e introdutório que cobre os conceitos básicos do Go.</li>
+<li><a href="https://golang.org/doc/effective_go.html">Effective Go</a>: Um guia oficial do Go que descreve as melhores práticas e convenções para escrever código Go.</li>
+</ul>
+</li>
+</ul>
+<p>Utilizaremos o livro <a href="https://amzn.to/3QtuU0R">Introdução à Linguagem Go - Crie programas escaláveis e confiáveis de Caleb Doxsey (O'Reilly). Copyrigth 2016 Caleb Doxsey, <em>ISBN</em> 978-1-4919-4195-9</a></p>
+<p><strong>Desafio de Projeto: Criar uma aplicação CLI (Command Line Interface)</strong> Crie uma aplicação de linha de comando simples que realiza uma tarefa específica, como calcular estatísticas básicas em um conjunto de dados ou converter unidades de medida. Isso ajudará a aplicar os conceitos básicos aprendidos e a familiarizar-se com a sintaxe e a estrutura do Go.</p>
+<h2 id="etapa-2-trabalhando-com-pacotes-e-gerenciamento-de-dependências-não-iniciada"><a class="header" href="#etapa-2-trabalhando-com-pacotes-e-gerenciamento-de-dependências-não-iniciada">Etapa 2: Trabalhando com Pacotes e Gerenciamento de Dependências (não iniciada)</a></h2>
+<ul>
+<li>Aprenda a usar pacotes em Go e a importar pacotes de terceiros.</li>
+<li>Explore o gerenciamento de dependências usando um gerenciador como o <code>go mod</code>.</li>
+<li>Recursos recomendados:
+<ul>
+<li><a href="https://golang.org/doc/code.html">How to Write Go Code</a>: Um guia oficial sobre como estruturar projetos em Go e usar pacotes.</li>
+<li><a href="https://blog.golang.org/using-go-modules">Go Modules</a>: Um artigo do blog oficial do Go que explica como usar o <code>go mod</code> para gerenciar dependências.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Desafio de Projeto: Criar uma API REST Simples</strong> Implemente uma API REST básica que ofereça funcionalidades como criação, leitura, atualização e exclusão (CRUD) de recursos. Use um framework web como o Gin ou o Echo para facilitar o desenvolvimento da API.</p>
+<h2 id="etapa-3-concorrência-e-paralelismo-não-iniciada"><a class="header" href="#etapa-3-concorrência-e-paralelismo-não-iniciada">Etapa 3: Concorrência e Paralelismo (não iniciada)</a></h2>
+<ul>
+<li>Aprenda a trabalhar com goroutines (threads leves) e canais (channels) para escrever código concorrente em Go.</li>
+<li>Explore técnicas de paralelismo para processar tarefas em paralelo e obter um melhor desempenho.</li>
+<li>Recursos recomendados:
+<ul>
+<li><a href="https://www.youtube.com/watch?v=f6kdp27TYZs">Concurrency in Go</a>: Uma palestra em vídeo do criador do Go, Rob Pike, sobre concorrência em Go.</li>
+<li><a href="https://blog.golang.org/codelab-share">Share Memory By Communicating</a>: Um tutorial do blog oficial do Go que explora o uso de canais para comunicação entre goroutines.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Desafio de Projeto: Desenvolver uma Aplicação de Web Scraping Paralela</strong> Crie uma aplicação que faça web scraping de várias páginas simultaneamente usando goroutines e canais. Isso demonstrará como aproveitar a concorrência e o paralelismo em Go para melhorar a eficiência de operações intensivas em E/S.</p>
+<h2 id="etapa-4-banco-de-dados-e-persistência-não-iniciada"><a class="header" href="#etapa-4-banco-de-dados-e-persistência-não-iniciada">Etapa 4: Banco de Dados e Persistência (não iniciada)</a></h2>
+<ul>
+<li>Aprenda a usar bancos de dados em Go, como o MySQL, PostgreSQL ou MongoDB.</li>
+<li>Explore técnicas de persistência, como a criação, leitura, atualização e exclusão de dados (CRUD) em um banco de dados.</li>
+<li>Recursos recomendados:
+<ul>
+<li><a href="https://golang.org/pkg/database/sql/">Database/SQL</a>: A documentação oficial do pacote <code>database/sql</code>, que é uma biblioteca padrão para interagir com bancos de dados SQL em Go.</li>
+<li><a href="https://pkg.go.dev/go.mongodb.org/mongo-driver">MongoDB Go Driver Documentation</a>: A documentação oficial do driver Go para MongoDB.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Desafio de Projeto: Construir um Sistema de Gerenciamento de Tarefas</strong> Crie um sistema de gerenciamento de tarefas que permita criar, atualizar, listar e excluir tarefas em um banco de dados. Use um banco de dados de sua escolha e aplique técnicas adequadas de persistência de dados.</p>
+<h2 id="etapa-5-segurança-e-autenticação-não-iniciada"><a class="header" href="#etapa-5-segurança-e-autenticação-não-iniciada">Etapa 5: Segurança e Autenticação (não iniciada)</a></h2>
+<ul>
+<li>Aprenda a implementar recursos de segurança e autenticação em aplicativos Go.</li>
+<li>Explore a autenticação baseada em token (como JWT) e a proteção de rotas e endpoints.</li>
+<li>Recursos recomendados:
+<ul>
+<li><a href="https://pkg.go.dev/github.com/dgrijalva/jwt-go">Authentication and Authorization</a>: A documentação oficial do pacote JWT para autenticação em Go.</li>
+<li><a href="https://www.youtube.com/watch?v=sVq2T4HtVus">Securing Your Go APIs With JWTs</a>: Um tutorial em vídeo que mostra como implementar autenticação baseada em JWT em uma API Go.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Desafio de Projeto: Implementar Autenticação JWT em uma API</strong> Adicione recursos de autenticação baseada em JWT a uma API existente que você tenha desenvolvido. Isso ajudará você a entender como proteger suas APIs e autenticar usuários usando tokens JWT.</p>
+<p>Essa é uma sugestão de plano de estudo para se tornar um desenvolvedor backend usando GoLang. Lembre-se de ajustar o plano de acordo com suas necessidades e interesses. Além disso, não hesite em explorar outras bibliotecas, frameworks ou áreas específicas do desenvolvimento backend em Go que você esteja interessado. Boa sorte em sua jornada de aprendizado!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fundamentos-do-golang"><a class="header" href="#fundamentos-do-golang">Fundamentos do GoLang</a></h1>
+<p>Novamente, com ajuda do chatGPT, seguindo o prompt inicial, executamos:</p>
+<pre><code>Detalhe a etapa 1 em subtópicos
+</code></pre>
+<p>Obtivemos então a lista abaixo de tópicos a serem seguidas.</p>
+<p>Nesta etapa utilizaremos o livro <a href="https://amzn.to/3QtuU0R">Introdução à Linguagem Go - Crie programas escaláveis e confiáveis de Caleb Doxsey (O'Reilly). Copyrigth 2016 Caleb Doxsey, <em>ISBN</em> 978-1-4919-4195-9</a> para desenvolver os fundamentos de Go. Nesta seção, todos os códigos desenvolvidos, tanto de exemplos quanto exercícios está divididos por capítulos.</p>
+<p>Não necessariamente os capítulos seguem a ordem dos temas elencados abaixo, e havendo necessidade, vamos buscar bibliografia novas e outras referências.</p>
+<h2 id="11-introdução-ao-go"><a class="header" href="#11-introdução-ao-go">1.1 Introdução ao Go</a></h2>
+<ul>
+<li>Visão geral da linguagem Go e suas principais características.</li>
+<li>Vantagens e casos de uso do Go em comparação com outras linguagens.</li>
+<li>Configuração do ambiente de desenvolvimento Go.</li>
+</ul>
+<h2 id="12-sintaxe-básica"><a class="header" href="#12-sintaxe-básica">1.2 Sintaxe Básica</a></h2>
+<ul>
+<li>Estrutura de um programa Go.</li>
+<li>Declarando variáveis e constantes.</li>
+<li>Operadores aritméticos e lógicos.</li>
+<li>Estruturas de controle, como condicionais (if, else) e loops (for, while).</li>
+</ul>
+<h2 id="13-tipos-de-dados-e-estruturas-de-dados"><a class="header" href="#13-tipos-de-dados-e-estruturas-de-dados">1.3 Tipos de Dados e Estruturas de Dados</a></h2>
+<ul>
+<li>Tipos de dados básicos em Go: int, float, string, bool.</li>
+<li>Tipos compostos: arrays, slices, maps e structs.</li>
+<li>Conversão de tipos e coerção.</li>
+<li>Manipulação de strings.</li>
+</ul>
+<h2 id="14-funções-e-pacotes"><a class="header" href="#14-funções-e-pacotes">1.4 Funções e Pacotes</a></h2>
+<ul>
+<li>Definição e chamada de funções.</li>
+<li>Parâmetros e retorno de funções.</li>
+<li>Organização de código em pacotes.</li>
+<li>Importação e uso de pacotes externos.</li>
+</ul>
+<h2 id="15-tratamento-de-erros-e-pânico"><a class="header" href="#15-tratamento-de-erros-e-pânico">1.5 Tratamento de Erros e Pânico</a></h2>
+<ul>
+<li>Tratamento de erros usando o mecanismo de retorno de erros em Go.</li>
+<li>Uso do pânico (panic) e recuperação (recover) para lidar com exceções.</li>
+</ul>
+<h2 id="16-concorrência-básica"><a class="header" href="#16-concorrência-básica">1.6 Concorrência Básica</a></h2>
+<ul>
+<li>Conceitos de goroutines e sua criação.</li>
+<li>Uso de canais (channels) para comunicação entre goroutines.</li>
+<li>Sincronização de goroutines usando wait groups.</li>
+</ul>
+<h2 id="17-testes-e-documentação"><a class="header" href="#17-testes-e-documentação">1.7 Testes e Documentação</a></h2>
+<ul>
+<li>Escrevendo testes unitários em Go.</li>
+<li>Uso da ferramenta de teste <code>go test</code>.</li>
+<li>Documentando código Go usando comentários.</li>
+</ul>
+<p>Esses são os principais tópicos que você deve abordar na Etapa 1 do seu plano de estudo. Lembre-se de praticar o que você aprende através de exercícios e projetos pequenos para consolidar seu conhecimento. Boa sorte!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-01"><a class="header" href="#capítulo-01">Capítulo 01</a></h1>
+<h2 id="exemplos"><a class="header" href="#exemplos">Exemplos</a></h2>
+<p>Primeiro programa Go:</p>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// isto é um comentário
+func main() {
+	fmt.Println(&quot;Olá, mundo!&quot;)
+}
+</code></pre>
+<hr />
+<h2 id="exercícios"><a class="header" href="#exercícios">Exercícios</a></h2>
+<h3 id="exercício-01"><a class="header" href="#exercício-01">Exercício 01</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;O que é uma espaço em branco?&quot;)
+	fmt.Println(&quot;Resposta: Não é nada que o compilador Go se preocupe em lidar&quot;)
+}
+</code></pre>
+<h3 id="exercício-02"><a class="header" href="#exercício-02">Exercício 02</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;O que é um comentário? Quais são as duas maneiras de escrever um comentário?&quot;)
+	fmt.Println(&quot;RESPOSTA: comentarios podem realidados com // e /* */. Onde o primeiro é comentário de linha e o segundo é de múltiplas linhas.&quot;)
+}
+</code></pre>
+<h3 id="exercício-03"><a class="header" href="#exercício-03">Exercício 03</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Nosso programa começou com `package main`. Os arquivos do pacote `fmt` devem começar com qual instrução?&quot;)
+
+	fmt.Println(&quot;Os programas do pacote `fmt` devem começar com `package fmt`.&quot;)
+}
+</code></pre>
+<h3 id="exercício-04"><a class="header" href="#exercício-04">Exercício 04</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Usamos a função `Println` definida no pacote `fmt`. Se quiséssemos usar a função `Exit` do pacote `os`, o que você deveria fazer?&quot;)
+
+	fmt.Println(&quot;RESPOSTA: Primeiro devemos importar o pacote `os` com o comando `import os`. Depois invocar a função `Exit` utilizando `os.Exit()`&quot;)
+
+}
+</code></pre>
+<h3 id="exercício-05"><a class="header" href="#exercício-05">Exercício 05</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Olá, meu nome é Téo!&quot;)
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-02"><a class="header" href="#capítulo-02">Capítulo 02</a></h1>
+<h2 id="exemplos-1"><a class="header" href="#exemplos-1">Exemplos</a></h2>
+<h3 id="soma-simples"><a class="header" href="#soma-simples">Soma simples</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;1 + 1 =&quot;, 1.0+1.0)
+}
+</code></pre>
+<h3 id="tamanho-elemento-e-concatenação-string"><a class="header" href="#tamanho-elemento-e-concatenação-string">Tamanho, elemento e concatenação string</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(len(&quot;Olá, mundo!&quot;))
+	fmt.Println(string(&quot;Olá, mundo!&quot;[0]))
+	fmt.Println(&quot;Olá, &quot; + &quot;mundo!&quot;)
+}
+</code></pre>
+<h3 id="tabela-verdade-com-operações-lógicas"><a class="header" href="#tabela-verdade-com-operações-lógicas">Tabela verdade com operações lógicas</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;true &amp;&amp; true =&quot;, true &amp;&amp; true)
+	fmt.Println(&quot;true &amp;&amp; false =&quot;, true &amp;&amp; false)
+	fmt.Println(&quot;true || true =&quot;, true || true)
+	fmt.Println(&quot;true || false =&quot;, true || false)
+	fmt.Println(&quot;!true =&quot;, !true)
+}
+</code></pre>
+<hr />
+<h2 id="exercícios-1"><a class="header" href="#exercícios-1">Exercícios</a></h2>
+<h3 id="exercício-01-1"><a class="header" href="#exercício-01-1">Exercício 01</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Como os inteiros são armazenados em um computador?&quot;)
+
+	fmt.Println(&quot;Utilizamos o sistema binário de base 2 para representar os números inteiros no computador.&quot;)
+}
+</code></pre>
+<h3 id="exercício-02-1"><a class="header" href="#exercício-02-1">Exercício 02</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(`Sabemos que na base 10 o maior número de um dígito é 9 e o maior número de dois dígitos é 99.
+	(...) qual é o maior número de oitro dígitos?`)
+
+	fmt.Println(&quot;Base 10 = 10^8 - 1 =&quot;, 100000000-1)
+	fmt.Println(&quot;Base 2 = 2^8 - 1 =&quot;, 2*2*2*2*2*2*2*2-1)
+}
+</code></pre>
+<h3 id="exercício-03-1"><a class="header" href="#exercício-03-1">Exercício 03</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Embora seja excessivamente qualificado para a tarefa, podemos usar go como uma calculadora. Escreva um programa que calcule 23132 x 42252 e exiba o resultado no terminal.&quot;)
+
+	fmt.Println(&quot;23132 x 42252 =&quot;, 23132*42252)
+}
+</code></pre>
+<h3 id="exercício-04-1"><a class="header" href="#exercício-04-1">Exercício 04</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;O que é uma String?&quot;)
+
+	fmt.Println(&quot;String são um conjunto de caractéres representados por um mais bytes.&quot;)
+
+	fmt.Println(&quot;Para obter o tamanho de uma string, utiliza-se a função `len`.&quot;)
+}
+</code></pre>
+<h3 id="exercício-05-1"><a class="header" href="#exercício-05-1">Exercício 05</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(`Qual é o valor da expressão (true &amp;&amp; false) || (false &amp;&amp; true) || !(false &amp;&amp; false)?`)
+
+	fmt.Println(&quot;(true &amp;&amp; false) || (false &amp;&amp; true) || !(false &amp;&amp; false) =&quot;, (true &amp;&amp; false) || (false &amp;&amp; true) || !(false &amp;&amp; false))
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-03"><a class="header" href="#capítulo-03">Capítulo 03</a></h1>
+<h2 id="exemplos-2"><a class="header" href="#exemplos-2">Exemplos</a></h2>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var x string      // Definição da variável
+	x = &quot;Olá, mundo!&quot; // Atribuição de valor
+	fmt.Println(x)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var x string
+	x = &quot;primeiro&quot;
+	fmt.Println(x)
+
+	x += &quot;segundo&quot;
+	fmt.Println(x)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var x string = &quot;Olá,&quot;
+	y := &quot;Olá,&quot;
+	fmt.Println(x == y)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+var x string = &quot;Olá, mundo!&quot;
+
+func main() {
+	fmt.Println(x)
+}
+
+func f() {
+	fmt.Println(x)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	const x string = &quot;Olá, mundo!&quot;
+	fmt.Println(x)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Print(&quot;Entre com um valor: &quot;)
+
+	var a int
+	fmt.Scanf(&quot;%d&quot;, &amp;a)
+
+	res := a * 2
+	fmt.Println(res)
+}
+</code></pre>
+<hr />
+<h2 id="exercícios-2"><a class="header" href="#exercícios-2">Exercícios</a></h2>
+<h3 id="exercício-01-2"><a class="header" href="#exercício-01-2">Exercício 01</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Quais são as duas maneiras de criar uma variável nova?&quot;)
+	fmt.Println(`Pode criar variávies a partir de:
+	
+	var x string = &quot;valor&quot;
+ou
+
+	x := &quot;valor&quot;`)
+}
+</code></pre>
+<h3 id="exercício-02-2"><a class="header" href="#exercício-02-2">Exercício 02</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Qual é o valor de `x` após a execução de `x:=5; x+=1`?&quot;)
+	x := 5
+	x += 1
+	fmt.Println(x)
+}
+</code></pre>
+<h3 id="exercício-03-2"><a class="header" href="#exercício-03-2">Exercício 03</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;O que é escopo? Cmo determinamos o escopo de uma variável em Go?&quot;)
+
+	fmt.Println(&quot;É o que define como uma variável, constante ou função pode ser acessada.&quot;)
+	fmt.Println(&quot;Definimos o escopo com base nos {}, tudo que estiver dentro destes, esta contido em um escopo específico.&quot;)
+}
+</code></pre>
+<h3 id="exercício-04-2"><a class="header" href="#exercício-04-2">Exercício 04</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Qual é a diferença entre `var` e `const`?&quot;)
+
+	fmt.Println(&quot;Variáveis podem sofrer alteração de seus valores. Já as constantes, não!&quot;)
+}
+</code></pre>
+<h3 id="exercício-05-2"><a class="header" href="#exercício-05-2">Exercício 05</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Print(&quot;Entre como um valor a ser convertido de Fahrenheit para Celsius: &quot;)
+
+	var f float64
+	fmt.Scanf(&quot;%f&quot;, &amp;f)
+
+	c := (f - 32.) * (5. / 9.)
+	fmt.Println(c)
+}
+</code></pre>
+<h3 id="exercício-06"><a class="header" href="#exercício-06">Exercício 06</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Print(&quot;Entre com o valor em pés para converter em metros: &quot;)
+
+	var p float64
+	fmt.Scanf(&quot;%f&quot;, &amp;p)
+
+	m := p * 0.3048
+	fmt.Println(m, &quot;metros&quot;)
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-04"><a class="header" href="#capítulo-04">Capítulo 04</a></h1>
+<h2 id="exemplos-3"><a class="header" href="#exemplos-3">Exemplos</a></h2>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(1)
+	fmt.Println(2)
+	fmt.Println(3)
+	fmt.Println(4)
+	fmt.Println(5)
+	fmt.Println(6)
+	fmt.Println(7)
+	fmt.Println(8)
+	fmt.Println(9)
+	fmt.Println(10)
+
+	fmt.Println(
+		`1
+2
+3
+4
+5
+6
+7
+8
+9
+10`)
+
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	i := 1
+	for i &lt;= 10 {
+		fmt.Println(i)
+		// i = i + 1
+	}
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+	}
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+
+	var check string
+
+	for i := 1; i &lt;= 10; i++ {
+
+		if i%2 == 0 {
+			check = &quot;par&quot;
+		} else {
+			check = &quot;ímpar&quot;
+		}
+
+		fmt.Println(i, check)
+	}
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+
+	var i int
+	fmt.Scanf(&quot;%d&quot;, &amp;i)
+
+	switch i {
+
+	case 1:
+		fmt.Println(&quot;um&quot;)
+	case 2:
+		fmt.Println(&quot;dois&quot;)
+	case 3:
+		fmt.Println(&quot;três&quot;)
+	case 4:
+		fmt.Println(&quot;quatro&quot;)
+	case 5:
+		fmt.Println(&quot;cinco&quot;)
+	default:
+		fmt.Println(&quot;desconhecido&quot;)
+	}
+
+}
+</code></pre>
+<hr />
+<h2 id="exercícios-3"><a class="header" href="#exercícios-3">Exercícios</a></h2>
+<h3 id="exercício-01-3"><a class="header" href="#exercício-01-3">Exercício 01</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;O que o programa a seguir exibe?&quot;)
+
+	i := 10
+	if i &gt; 10 {
+		fmt.Println(&quot;Big&quot;)
+	} else {
+		fmt.Println(&quot;Small&quot;)
+	}
+}
+</code></pre>
+<h3 id="exercício-02-3"><a class="header" href="#exercício-02-3">Exercício 02</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Escreva um programa que exiba todos os números entre 1 e 100 que sejam divisíveis por 3.&quot;)
+
+	for i := 1; i &lt;= 100; i++ {
+		if i%3 == 0 {
+			fmt.Println(i)
+		}
+	}
+}
+</code></pre>
+<h3 id="exercício-03-3"><a class="header" href="#exercício-03-3">Exercício 03</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Escreva um programa que exiba números de 1 a 100, mas para múltiplos de 3, mostre `Fizz` no lugar do número, e para mútiplos de cinco, exiba `Buzz`. Para números que seja, múltiplos tanto de 3 quanto de 5, mostre `FizzBuzz`.&quot;)
+
+	for i := 1; i &lt;= 100; i++ {
+		txt := &quot;&quot;
+
+		if i%3 == 0 {
+			txt += &quot;Fizz&quot;
+		}
+
+		if i%5 == 0 {
+			txt += &quot;Buzz&quot;
+		}
+
+		if txt == &quot;&quot; {
+			fmt.Println(i)
+		} else {
+			fmt.Println(txt)
+		}
+	}
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-05"><a class="header" href="#capítulo-05">Capítulo 05</a></h1>
+<h2 id="exemplos-4"><a class="header" href="#exemplos-4">Exemplos</a></h2>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var x [5]int
+	x[4] = 100
+	fmt.Println(x)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var x [5]float64
+	x[0] = 98
+	x[1] = 93
+	x[2] = 77
+	x[3] = 82
+	x[4] = 83
+
+	total := 0.
+	for i := 0; i &lt; 5; i++ {
+		total += x[i]
+	}
+
+	fmt.Println(total / 5)
+
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var x [5]float64
+	x[0] = 98
+	x[1] = 93
+	x[2] = 77
+	x[3] = 82
+	x[4] = 83
+
+	total := 0.
+	for i := 0; i &lt; len(x); i++ {
+		total += x[i]
+	}
+
+	fmt.Println(total / float64(len(x)))
+
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var x [5]float64
+	x[0] = 98
+	x[1] = 93
+	x[2] = 77
+	x[3] = 82
+	x[4] = 83
+
+	total := 0.
+	for _, value := range x {
+		total += value
+	}
+
+	fmt.Println(total / float64(len(x)))
+
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	x := [5]float64{
+		98,
+		93,
+		77,
+		82,
+		83,
+	}
+
+	total := 0.
+	for _, value := range x {
+		total += value
+	}
+	fmt.Println(total / float64(len(x)))
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	txt := `	var x []float64
+
+	y := make([]float64, 5)
+
+	z := make([]float64, 5, 10)
+
+	arr := [5]float64{1, 2, 3, 4, 5}
+	t := arr[0:5]`
+
+	fmt.Println(txt)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	slice1 := []int{1, 2, 3}
+
+	slice2 := []int{4, 5}
+
+	slice3 := append(slice1, slice2...)
+
+	fmt.Println(slice1, slice3)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	slice1 := []int{1, 2, 3}
+	slice2 := make([]int, 2)
+	copy(slice2, slice1)
+	fmt.Println(slice1, slice2)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	x := make(map[string]int)
+	x[&quot;key&quot;] = 10
+	fmt.Println(x)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	elementos := make(map[string]string)
+	elementos[&quot;H&quot;] = &quot;Hidrogênio&quot;
+	elementos[&quot;He&quot;] = &quot;Hélio&quot;
+	elementos[&quot;Li&quot;] = &quot;Lítio&quot;
+	elementos[&quot;Be&quot;] = &quot;Meryllium&quot;
+	elementos[&quot;B&quot;] = &quot;Bóro&quot;
+	elementos[&quot;C&quot;] = &quot;Carbono&quot;
+	elementos[&quot;N&quot;] = &quot;Nitrogênio&quot;
+	elementos[&quot;O&quot;] = &quot;Oxigênio&quot;
+	elementos[&quot;F&quot;] = &quot;Fluor&quot;
+	elementos[&quot;Ne&quot;] = &quot;Neon&quot;
+
+	fmt.Println(elementos[&quot;Li&quot;])
+
+	// name, ok := elementos[&quot;Teo&quot;]
+	// fmt.Println(name, ok)
+
+	if name, ok := elementos[&quot;Teo&quot;]; ok {
+		fmt.Println(name)
+	}
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	elementos := map[string]string{
+		&quot;H&quot;:  &quot;Hidrogênio&quot;,
+		&quot;He&quot;: &quot;Hélio&quot;,
+		&quot;Li&quot;: &quot;Lítio&quot;,
+		&quot;Be&quot;: &quot;Meryllium&quot;,
+		&quot;B&quot;:  &quot;Bóro&quot;,
+		&quot;C&quot;:  &quot;Carbono&quot;,
+		&quot;N&quot;:  &quot;Nitrogênio&quot;,
+		&quot;O&quot;:  &quot;Oxigênio&quot;,
+		&quot;F&quot;:  &quot;Fluor&quot;,
+		&quot;Ne&quot;: &quot;Neon&quot;,
+	}
+
+	fmt.Println(elementos[&quot;Li&quot;])
+
+	// name, ok := elementos[&quot;Teo&quot;]
+	// fmt.Println(name, ok)
+
+	if name, ok := elementos[&quot;Teo&quot;]; ok {
+		fmt.Println(name)
+	}
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	elementos := map[string]map[string]string{
+		&quot;H&quot;: {
+			&quot;nome&quot;:   &quot;Hidrogênio&quot;,
+			&quot;estado&quot;: &quot;Gasoso&quot;,
+		},
+
+		&quot;He&quot;: {
+			&quot;nome&quot;:   &quot;Hélio&quot;,
+			&quot;estado&quot;: &quot;Gasoso&quot;,
+		},
+
+		&quot;Li&quot;: {
+			&quot;nome&quot;:   &quot;Lítio&quot;,
+			&quot;estado&quot;: &quot;Sólido&quot;,
+		},
+
+		&quot;Be&quot;: {
+			&quot;nome&quot;:   &quot;Beryllium&quot;,
+			&quot;estado&quot;: &quot;Sólido&quot;,
+		},
+
+		&quot;B&quot;: {
+			&quot;nome&quot;:   &quot;Bóro&quot;,
+			&quot;estado&quot;: &quot;Sólido&quot;,
+		},
+
+		&quot;C&quot;: {
+			&quot;nome&quot;:   &quot;Carbono&quot;,
+			&quot;estado&quot;: &quot;Sólido&quot;,
+		},
+
+		&quot;N&quot;: {
+			&quot;nome&quot;:   &quot;Nitrogênio&quot;,
+			&quot;estado&quot;: &quot;Gasoso&quot;,
+		},
+
+		&quot;O&quot;: {
+			&quot;nome&quot;:   &quot;Oxigênio&quot;,
+			&quot;estado&quot;: &quot;Gasoso&quot;,
+		},
+
+		&quot;F&quot;: {
+			&quot;nome&quot;:   &quot;Fluor&quot;,
+			&quot;estado&quot;: &quot;Gasoso&quot;,
+		},
+
+		&quot;Ne&quot;: {
+			&quot;nome&quot;:   &quot;Neon&quot;,
+			&quot;estado&quot;: &quot;Gasoso&quot;,
+		},
+	}
+
+	var elemento string
+
+	fmt.Println(&quot;Entre com a sigla de um elemento: &quot;)
+	fmt.Scanf(&quot;%s&quot;, &amp;elemento)
+
+	if el, ok := elementos[elemento]; ok {
+		fmt.Println(el[&quot;nome&quot;], &quot;:&quot;, el[&quot;estado&quot;])
+	}
+}
+</code></pre>
+<hr />
+<h2 id="exercícios-4"><a class="header" href="#exercícios-4">Exercícios</a></h2>
+<h3 id="exercício-01-4"><a class="header" href="#exercício-01-4">Exercício 01</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Como poedmos acessar o quarto elemento de uma array de uma fatia?&quot;)
+
+	x := [5]int{1, 2, 3, 4, 5}
+
+	fmt.Println(&quot;Quarto elemento:&quot;, x[3])
+}
+</code></pre>
+<h3 id="exercício-02-4"><a class="header" href="#exercício-02-4">Exercício 02</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	slice := make([]int, 3, 9)
+	fmt.Println(&quot;O tamanho da fatia é:&quot;, len(slice))
+}
+</code></pre>
+<h3 id="exercício-03-4"><a class="header" href="#exercício-03-4">Exercício 03</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Dado o array a seguir, o que x[2:5] devolveria?&quot;)
+	fmt.Println(`x := [6]string{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;}`)
+
+	x := [6]string{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;}
+
+	fmt.Println(&quot;x[2:5] =&quot;, x[2:5])
+}
+</code></pre>
+<h3 id="exercício-04-3"><a class="header" href="#exercício-04-3">Exercício 04</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Escreva um programa que descubra o menor número dessa lista:&quot;)
+
+	x := []int{
+		48, 96, 86, 68,
+		57, 82, 63, 70,
+		37, 34, 83, 27,
+		19, 97, 9, 17,
+	}
+
+	numero := x[0]
+
+	for _, i := range x[1:] {
+		if i &lt; numero {
+			numero = i
+		}
+	}
+
+	fmt.Println(&quot;O menor número é:&quot;, numero)
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-06"><a class="header" href="#capítulo-06">Capítulo 06</a></h1>
+<h2 id="exemplos-5"><a class="header" href="#exemplos-5">Exemplos</a></h2>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	xs := []float64{98, 93, 77, 82, 83}
+	total := 0.0
+
+	for _, v := range xs {
+		total += v
+	}
+
+	fmt.Println(&quot;Média:&quot;, total/float64(len(xs)))
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func media(x []float64) float64 {
+	total := 0.0
+	for _, v := range x {
+		total += v
+	}
+	return total / float64(len(x))
+}
+
+func main() {
+	xs := []float64{98, 93, 77, 82, 83}
+	fmt.Println(media(xs))
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func media(x []float64) (res float64) {
+	total := 0.0
+	for _, v := range x {
+		total += v
+	}
+
+	res = total / float64(len(x))
+	return
+}
+
+func main() {
+	xs := []float64{98, 93, 77, 82, 83}
+	fmt.Println(media(xs))
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func soma(args ...int) int {
+	total := 0
+	for _, v := range args {
+		total += v
+	}
+	return total
+}
+
+func main() {
+
+	x := []int{1, 4, 8, 10}
+	fmt.Println(soma(x...))
+
+	fmt.Println(soma(1, 2, 3))
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	add := func(a, b int) int {
+		return a + b
+	}
+
+	fmt.Println(add(1, 1))
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	x := 0
+
+	incremento := func() int {
+		x++
+		return x
+	}
+
+	fmt.Println(incremento())
+	fmt.Println(incremento())
+
+	fmt.Println(x)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func constroiGeradorPares() func() int {
+	i := 0
+	return func() (ret int) {
+		ret = i
+		i += 2
+		return
+	}
+}
+
+func main() {
+
+	proxPar := constroiGeradorPares()
+	fmt.Println(proxPar())
+	fmt.Println(proxPar())
+	fmt.Println(proxPar())
+
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func fat(x int) int {
+	if x == 0 {
+		return 1
+	}
+	return x * fat(x-1)
+}
+
+func main() {
+
+	num := 0
+	fmt.Println(&quot;Entre com um número para cálculo de fatorial: &quot;)
+	fmt.Scanf(&quot;%d&quot;, &amp;num)
+	fmt.Println(fat(num))
+
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func first() {
+	fmt.Println(&quot;Primeiro!&quot;)
+}
+
+func second() {
+	fmt.Println(&quot;Segundo!&quot;)
+}
+
+func main() {
+
+	defer second()
+	first()
+	fmt.Println(&quot;Ainda não acabou...&quot;)
+
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+
+	defer func() {
+		str := recover()
+		fmt.Println(&quot;Capturado!&quot;)
+		fmt.Println(str)
+
+	}()
+
+	panic(&quot;PANIC! ERRO BRUTAL!&quot;)
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func zero(x int) {
+	x = 0
+}
+
+func main() {
+
+	x := 10
+	fmt.Println(x)
+
+	zero(x)
+
+	fmt.Println(x)
+
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func zero(xPtr *int) {
+	*xPtr = 0
+}
+
+func main() {
+	x := 5
+	fmt.Println(x)
+	zero(&amp;x)
+	fmt.Println(x)
+}
+</code></pre>
+<hr />
+<h2 id="exercícios-5"><a class="header" href="#exercícios-5">Exercícios</a></h2>
+<h3 id="exercício-01-5"><a class="header" href="#exercício-01-5">Exercício 01</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func sum(x []int) int {
+	total := 0
+	for _, v := range x {
+		total += v
+	}
+	return total
+}
+
+func main() {
+	fmt.Println(&quot;`sum` é uma função que aceita uma fatia de números e os soma. Como seria a assinatura desta função em Go?&quot;)
+	fmt.Println(&quot;func sum(x []int) int&quot;)
+}
+</code></pre>
+<h3 id="exercício-02-5"><a class="header" href="#exercício-02-5">Exercício 02</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func par(x int) (int, bool) {
+	return x / 2, x%2 == 0
+}
+
+func main() {
+	fmt.Println(&quot;Escreva uma função que aceite um inteiro, calcule sua metade e devolva verdadeiro, caso o número seja par e falso se for ímpar.&quot;)
+
+	numero := 0
+	fmt.Scanf(&quot;%d&quot;, &amp;numero)
+	fmt.Println(par(numero))
+}
+</code></pre>
+<h3 id="exercício-03-5"><a class="header" href="#exercício-03-5">Exercício 03</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;errors&quot;
+	&quot;fmt&quot;
+)
+
+func maximo(x ...int) (int, error) {
+
+	if len(x) &lt; 1 {
+		return 0, errors.New(&quot;Fodase&quot;)
+	}
+
+	max := x[0]
+	for _, v := range x[1:] {
+		if max &lt; v {
+			max = v
+		}
+	}
+	return max, nil
+}
+
+func main() {
+	fmt.Println(&quot;Escreva ua função com um parâmetro variádico que descubra o maior valor de uma lista de números.&quot;)
+
+	x := []int{
+		1, 24, 1,
+		421, 51, 531,
+		54, 2, 1, 0,
+		12, 3, 451,
+		51, 231, 938,
+		24, 932,
+	}
+
+	fmt.Println(maximo(x...))
+	fmt.Println(maximo(1, 3, 2103, 2412, 421, 98))
+	fmt.Println(maximo(1))
+	fmt.Println(maximo())
+}
+</code></pre>
+<h3 id="exercício-04-4"><a class="header" href="#exercício-04-4">Exercício 04</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func geraImpar() func() int {
+	i := 1
+	return func() (ret int) {
+		ret = i
+		i += 2
+		return
+	}
+}
+
+func main() {
+	fmt.Println(&quot;Usando o `makeEvenGenerator` como exemplo, escreva uma função que genre números ímpares.&quot;)
+
+	gerador := geraImpar()
+	fmt.Println(gerador())
+	fmt.Println(gerador())
+	fmt.Println(gerador())
+}
+</code></pre>
+<h3 id="exercício-05-3"><a class="header" href="#exercício-05-3">Exercício 05</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func fib(n int) int {
+	if n &lt;= 1 {
+		return n
+	}
+
+	return fib(n-1) + fib(n-2)
+}
+
+func main() {
+	fmt.Println(&quot;A sequencia Fibonacci é definida como: fib(0)=0, fib(1)=1.&quot;)
+	fmt.Println(&quot;fib(n)=fib(n-1) + fib(n-2). Escreva um programa com função recursiva capaz de falcular fib(n)&quot;)
+
+	n := 0
+	fmt.Scanf(&quot;%d&quot;, &amp;n)
+
+	fmt.Println(fib(n))
+}
+</code></pre>
+<h3 id="exercício-06-1"><a class="header" href="#exercício-06-1">Exercício 06</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;O que são `defer`, `panic` e `recover`? COmo podemos nos recuperar de uma pânico em um tempo de execução?&quot;)
+
+	fmt.Println(&quot;São instruções que ajudam a mudar o fluxo de nossos programas.&quot;)
+
+	fmt.Println(&quot;defer: utilizado para que uma função (ou comando) seja invocado ao final do escopo que pertence.&quot;)
+
+	fmt.Println(&quot;panic: utilizado para lançar um erro durante a execução.&quot;)
+
+	fmt.Println(&quot;recover: utilizado para capturr um erro durante a execução.&quot;)
+
+	fmt.Println(&quot;Utilizamos o defer combinado com o recover para recuperar um pânico. Lembrando que isso é um `anti-padrão`&quot;)
+
+}
+</code></pre>
+<h3 id="exercício-07"><a class="header" href="#exercício-07">Exercício 07</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Como podemos obter o endereço de memória de uma variável?&quot;)
+
+	fmt.Println(&quot;Utilizamos a sintaxe &amp;x para acessar o endereço de x&quot;)
+}
+</code></pre>
+<h3 id="exercício-08"><a class="header" href="#exercício-08">Exercício 08</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Como podemos atribuir um valor a um ponteiro?&quot;)
+
+	fmt.Println(&quot;*xPtr = 1&quot;)
+
+	x := 0
+
+	xPtr := &amp;x
+
+	*xPtr = 10
+
+	fmt.Println(x)
+}
+</code></pre>
+<h3 id="exercício-09"><a class="header" href="#exercício-09">Exercício 09</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Como podemos criar um novo ponteiro?&quot;)
+
+	xPtr := new(int)
+	fmt.Print(xPtr)
+}
+</code></pre>
+<h3 id="exercício-10"><a class="header" href="#exercício-10">Exercício 10</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func square(x *float64) {
+	*x = *x * *x
+}
+
+func main() {
+	fmt.Println(&quot;Qual e o valor de x após a execução deste programa?&quot;)
+
+	x := 1.5
+
+	square(&amp;x)
+
+	fmt.Println(x)
+}
+</code></pre>
+<h3 id="exercício-11"><a class="header" href="#exercício-11">Exercício 11</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func swap(x, y *int) {
+
+	*x, *y = *y, *x
+
+}
+
+func main() {
+	fmt.Println(&quot;Escreva um programa que possa trocar dois inteiros (x:=1; y:=2; swap(&amp;x, &amp;y)) deve resultar em x=2 e y=1.&quot;)
+
+	x := 1
+	y := 2
+	swap(&amp;x, &amp;y)
+	fmt.Println(x, y)
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="etapa-2"><a class="header" href="#etapa-2">Etapa 2</a></h1>
+<p><em>Não iniciada</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="etapa-3"><a class="header" href="#etapa-3">Etapa 3</a></h1>
+<p><em>Não iniciada</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="etapa-4"><a class="header" href="#etapa-4">Etapa 4</a></h1>
+<p><em>Não iniciada</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="etapa-5"><a class="header" href="#etapa-5">Etapa 5</a></h1>
+<p><em>Não iniciada</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>

@@ -1,6 +1,6 @@
 # Summary
 
-[Início](../README.md)
+[Início](./README.md)
 
 - [Etapa 1](./etapa_01/README.md)
     - [Capítulo 01](./etapa_01/cap01/README.md)
