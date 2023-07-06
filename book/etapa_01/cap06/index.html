@@ -168,6 +168,7 @@
                     <main>
                         <h1 id="capítulo-06"><a class="header" href="#capítulo-06">Capítulo 06</a></h1>
 <h2 id="exemplos"><a class="header" href="#exemplos">Exemplos</a></h2>
+<h3 id="calculando-média-sem-definir-uma-função-para-a-média"><a class="header" href="#calculando-média-sem-definir-uma-função-para-a-média">Calculando média sem definir uma função para a média.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -183,6 +184,8 @@ func main() {
 	fmt.Println(&quot;Média:&quot;, total/float64(len(xs)))
 }
 </code></pre>
+<h3 id="definindo-função-para-média"><a class="header" href="#definindo-função-para-média">Definindo função para média.</a></h3>
+<p>Em Go, a palavra reservada <code>func</code> define funções. A seguir, adicionamos o nome da função e seus parâmetros (zero ou mais), bem como o tipo associado de cada parâmetro. Além disso, podemos retornar zero ou mais valores, especificando seus tipos.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -200,6 +203,8 @@ func main() {
 	fmt.Println(media(xs))
 }
 </code></pre>
+<h3 id="nomeando-retorno"><a class="header" href="#nomeando-retorno">Nomeando retorno</a></h3>
+<p>Podemos dizer no memento da assinatura da função, qual variável será retornada.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -219,6 +224,8 @@ func main() {
 	fmt.Println(media(xs))
 }
 </code></pre>
+<h3 id="funções-variádicas"><a class="header" href="#funções-variádicas">Funções variádicas.</a></h3>
+<p>Ao escrever a assinatura de uma função, seu último parâmetro pode ser variádico. Isso significa que podemos receber uma quantidade indeterminada de valores para este parâmetro.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -239,6 +246,7 @@ func main() {
 	fmt.Println(soma(1, 2, 3))
 }
 </code></pre>
+<h3 id="funções-dentro-de-funções"><a class="header" href="#funções-dentro-de-funções">Funções dentro de funções</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -251,6 +259,7 @@ func main() {
 	fmt.Println(add(1, 1))
 }
 </code></pre>
+<h3 id="funções-acessando-variáveis-de-outra-função"><a class="header" href="#funções-acessando-variáveis-de-outra-função">Funções acessando variáveis de outra função</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -269,6 +278,7 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="clojure"><a class="header" href="#clojure">Clojure</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -291,6 +301,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="recursão"><a class="header" href="#recursão">Recursão</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -311,6 +322,8 @@ func main() {
 
 }
 </code></pre>
+<h3 id="defer"><a class="header" href="#defer">Defer</a></h3>
+<p>Maneira de executar uam instrução (normalmente uma função), ao final do escopo onde está sendo lançada. Isso garante a sua execução, sempre.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -331,6 +344,8 @@ func main() {
 
 }
 </code></pre>
+<h3 id="combinando-de-defer--panic"><a class="header" href="#combinando-de-defer--panic">Combinando de <code>defer</code> + <code>panic</code>.</a></h3>
+<p>Isso é um anti-padrão de Go e deve ser evitado.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -347,6 +362,8 @@ func main() {
 	panic(&quot;PANIC! ERRO BRUTAL!&quot;)
 }
 </code></pre>
+<h3 id="função-que-não-altera-valor-de-x"><a class="header" href="#função-que-não-altera-valor-de-x">Função que não altera valor de <code>x</code>.</a></h3>
+<p>Para alterarmos o valor de <code>x</code>, precisamos acessar seu ponteiro, uma vez que o que é passado para a função <code>zero()</code> é uma cópia do valor de <code>x</code>, e não <code>x</code> propriamente.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -366,6 +383,8 @@ func main() {
 
 }
 </code></pre>
+<h3 id="função-com-ponteiro"><a class="header" href="#função-com-ponteiro">Função com ponteiro</a></h3>
+<p>Utilizamos o <code>&amp;</code> para acessa o endereço de memória e <code>*</code> para acessa o valor correspondente à este endereço.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;

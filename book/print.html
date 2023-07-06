@@ -453,6 +453,7 @@ func main() {
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-03"><a class="header" href="#capítulo-03">Capítulo 03</a></h1>
 <h2 id="exemplos-2"><a class="header" href="#exemplos-2">Exemplos</a></h2>
+<h3 id="como-criamos-variáveis-em-go"><a class="header" href="#como-criamos-variáveis-em-go">Como criamos variáveis em Go:</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -463,6 +464,8 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="alterando-valor-de-da-variável"><a class="header" href="#alterando-valor-de-da-variável">Alterando valor de da variável</a></h3>
+<p>Aqui concatenamos nossa string com outra.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -476,6 +479,8 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="mode-de-inicialização--atribuição"><a class="header" href="#mode-de-inicialização--atribuição">Mode de inicialização + atribuição</a></h3>
+<p>Podemos criar uma variável com <code>:=</code>, ja atribuindo um valor à ela, onde seu tipo é inferido por Go</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -486,6 +491,8 @@ func main() {
 	fmt.Println(x == y)
 }
 </code></pre>
+<h3 id="escopo-de-variável-e-funções"><a class="header" href="#escopo-de-variável-e-funções">Escopo de variável e funções</a></h3>
+<p>A variável <code>x</code> é acessada por <code>f()</code> pois foi definida no escopo global de nosso programa. E não dentro de <code>main()</code>.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -500,6 +507,7 @@ func f() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="definindo-constantes"><a class="header" href="#definindo-constantes">Definindo constantes</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -509,6 +517,7 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="lendo-dados-do-usuário-com-fmtscanf"><a class="header" href="#lendo-dados-do-usuário-com-fmtscanf">Lendo dados do usuário com <code>fmt.Scanf()</code></a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -607,6 +616,7 @@ func main() {
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-04"><a class="header" href="#capítulo-04">Capítulo 04</a></h1>
 <h2 id="exemplos-3"><a class="header" href="#exemplos-3">Exemplos</a></h2>
+<h3 id="números-de-1-a-10-sem-for"><a class="header" href="#números-de-1-a-10-sem-for">Números de 1 a 10 sem <code>for</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -637,6 +647,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="números-de-1-a-10-com-for"><a class="header" href="#números-de-1-a-10-com-for">Números de 1 a 10 com <code>for</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -645,10 +656,17 @@ func main() {
 	i := 1
 	for i &lt;= 10 {
 		fmt.Println(i)
-		// i = i + 1
+		i = i + 1
 	}
 }
 </code></pre>
+<h3 id="números-de-1-a-10-com-for-versão-completa"><a class="header" href="#números-de-1-a-10-com-for-versão-completa">Números de 1 a 10 com <code>for</code> versão completa.</a></h3>
+<p>Essa maneira adiciona todos os componentes do laço <code>for</code>:</p>
+<ul>
+<li>inicialização da variável <code>i</code>;</li>
+<li>condição de parada;</li>
+<li>incremento ao final de cada iteração;</li>
+</ul>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -659,6 +677,7 @@ func main() {
 	}
 }
 </code></pre>
+<h3 id="números-pares-e-ímpares-entre-1-e-10-com-for-if-e-else"><a class="header" href="#números-pares-e-ímpares-entre-1-e-10-com-for-if-e-else">Números pares e ímpares entre 1 e 10 com <code>for</code>, <code>if</code> e <code>else</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -679,6 +698,7 @@ func main() {
 	}
 }
 </code></pre>
+<h3 id="uso-do-switch"><a class="header" href="#uso-do-switch">Uso do <code>switch</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -768,6 +788,8 @@ func main() {
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-05"><a class="header" href="#capítulo-05">Capítulo 05</a></h1>
 <h2 id="exemplos-4"><a class="header" href="#exemplos-4">Exemplos</a></h2>
+<h3 id="criação-de-array"><a class="header" href="#criação-de-array">Criação de <code>array</code>.</a></h3>
+<p>Array com tamanho 5 do tipo inteiro, alterando o valor do índice 4 (quinto elemento)</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -778,6 +800,8 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="soma-de-uma-array-do-tipo-float64"><a class="header" href="#soma-de-uma-array-do-tipo-float64">Soma de uma <code>array</code> do tipo <code>float64</code>.</a></h3>
+<p>Inicialização do <code>array</code> com 5 elementos (todos com valor 0), onde cada um é alterado, e depois utilizamos um laço <code>for</code> para percorrer os índices realizando a soma de cada elemento.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -799,6 +823,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="função-len-para-tamanho-de-array"><a class="header" href="#função-len-para-tamanho-de-array">Função <code>len()</code> para tamanho de <code>array</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -820,6 +845,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="percorrendo-elementos-do-array-sem-utilizar-índices"><a class="header" href="#percorrendo-elementos-do-array-sem-utilizar-índices">Percorrendo elementos do <code>array</code> sem utilizar índices.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -841,6 +867,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="iniciando-um-array-já-com-valores"><a class="header" href="#iniciando-um-array-já-com-valores">Iniciando um array já com valores</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -861,6 +888,7 @@ func main() {
 	fmt.Println(total / float64(len(x)))
 }
 </code></pre>
+<h3 id="exemplos-de-formas-diferentes-para-criar-um-array"><a class="header" href="#exemplos-de-formas-diferentes-para-criar-um-array">Exemplos de formas diferentes para criar um <code>array</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -878,6 +906,7 @@ func main() {
 	fmt.Println(txt)
 }
 </code></pre>
+<h3 id="criação-de-fatias-slices"><a class="header" href="#criação-de-fatias-slices">Criação de fatias (<code>slices</code>).</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -892,6 +921,7 @@ func main() {
 	fmt.Println(slice1, slice3)
 }
 </code></pre>
+<h3 id="copiando-conteúdo-de-uma-fatia-para-uma-fatia-menor"><a class="header" href="#copiando-conteúdo-de-uma-fatia-para-uma-fatia-menor">Copiando conteúdo de uma fatia para uma fatia menor.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -903,6 +933,7 @@ func main() {
 	fmt.Println(slice1, slice2)
 }
 </code></pre>
+<h3 id="definição-de-mapas-chavevalor"><a class="header" href="#definição-de-mapas-chavevalor">Definição de mapas (chave/valor).</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -913,6 +944,9 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="acessando-elementos-de-uma-mapa"><a class="header" href="#acessando-elementos-de-uma-mapa">Acessando elementos de uma mapa.</a></h3>
+<p>Em Go, caso a chave que tentamos acessa não exista, nos é retornado um valor vazio correspondente ao tipo do valor. Isto é, <code>&quot;&quot;</code> para strings e <code>0</code> para int.</p>
+<p>Além disso, e possível checar se o elemento realmente não existe com base no segundo valor que nos é retornado, sendo este um booleando (<code>true</code> ou <code>false</code>).</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -940,6 +974,7 @@ func main() {
 	}
 }
 </code></pre>
+<h3 id="definindo-chavesvalor-no-momento-de-criação-dos-mapas"><a class="header" href="#definindo-chavesvalor-no-momento-de-criação-dos-mapas">Definindo chaves/valor no momento de criação dos mapas.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -968,6 +1003,7 @@ func main() {
 	}
 }
 </code></pre>
+<h3 id="mapas-que-tem-mapas-como-valores-associados-à-suas-chaves-mapas-de-mapas"><a class="header" href="#mapas-que-tem-mapas-como-valores-associados-à-suas-chaves-mapas-de-mapas">Mapas que tem mapas como valores associados à suas chaves (mapas de mapas).</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1102,6 +1138,7 @@ func main() {
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-06"><a class="header" href="#capítulo-06">Capítulo 06</a></h1>
 <h2 id="exemplos-5"><a class="header" href="#exemplos-5">Exemplos</a></h2>
+<h3 id="calculando-média-sem-definir-uma-função-para-a-média"><a class="header" href="#calculando-média-sem-definir-uma-função-para-a-média">Calculando média sem definir uma função para a média.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1117,6 +1154,8 @@ func main() {
 	fmt.Println(&quot;Média:&quot;, total/float64(len(xs)))
 }
 </code></pre>
+<h3 id="definindo-função-para-média"><a class="header" href="#definindo-função-para-média">Definindo função para média.</a></h3>
+<p>Em Go, a palavra reservada <code>func</code> define funções. A seguir, adicionamos o nome da função e seus parâmetros (zero ou mais), bem como o tipo associado de cada parâmetro. Além disso, podemos retornar zero ou mais valores, especificando seus tipos.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1134,6 +1173,8 @@ func main() {
 	fmt.Println(media(xs))
 }
 </code></pre>
+<h3 id="nomeando-retorno"><a class="header" href="#nomeando-retorno">Nomeando retorno</a></h3>
+<p>Podemos dizer no memento da assinatura da função, qual variável será retornada.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1153,6 +1194,8 @@ func main() {
 	fmt.Println(media(xs))
 }
 </code></pre>
+<h3 id="funções-variádicas"><a class="header" href="#funções-variádicas">Funções variádicas.</a></h3>
+<p>Ao escrever a assinatura de uma função, seu último parâmetro pode ser variádico. Isso significa que podemos receber uma quantidade indeterminada de valores para este parâmetro.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1173,6 +1216,7 @@ func main() {
 	fmt.Println(soma(1, 2, 3))
 }
 </code></pre>
+<h3 id="funções-dentro-de-funções"><a class="header" href="#funções-dentro-de-funções">Funções dentro de funções</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1185,6 +1229,7 @@ func main() {
 	fmt.Println(add(1, 1))
 }
 </code></pre>
+<h3 id="funções-acessando-variáveis-de-outra-função"><a class="header" href="#funções-acessando-variáveis-de-outra-função">Funções acessando variáveis de outra função</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1203,6 +1248,7 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="clojure"><a class="header" href="#clojure">Clojure</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1225,6 +1271,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="recursão"><a class="header" href="#recursão">Recursão</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1245,6 +1292,8 @@ func main() {
 
 }
 </code></pre>
+<h3 id="defer"><a class="header" href="#defer">Defer</a></h3>
+<p>Maneira de executar uam instrução (normalmente uma função), ao final do escopo onde está sendo lançada. Isso garante a sua execução, sempre.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1265,6 +1314,8 @@ func main() {
 
 }
 </code></pre>
+<h3 id="combinando-de-defer--panic"><a class="header" href="#combinando-de-defer--panic">Combinando de <code>defer</code> + <code>panic</code>.</a></h3>
+<p>Isso é um anti-padrão de Go e deve ser evitado.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1281,6 +1332,8 @@ func main() {
 	panic(&quot;PANIC! ERRO BRUTAL!&quot;)
 }
 </code></pre>
+<h3 id="função-que-não-altera-valor-de-x"><a class="header" href="#função-que-não-altera-valor-de-x">Função que não altera valor de <code>x</code>.</a></h3>
+<p>Para alterarmos o valor de <code>x</code>, precisamos acessar seu ponteiro, uma vez que o que é passado para a função <code>zero()</code> é uma cópia do valor de <code>x</code>, e não <code>x</code> propriamente.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -1300,6 +1353,8 @@ func main() {
 
 }
 </code></pre>
+<h3 id="função-com-ponteiro"><a class="header" href="#função-com-ponteiro">Função com ponteiro</a></h3>
+<p>Utilizamos o <code>&amp;</code> para acessa o endereço de memória e <code>*</code> para acessa o valor correspondente à este endereço.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;

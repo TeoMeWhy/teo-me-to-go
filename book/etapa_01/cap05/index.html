@@ -168,6 +168,8 @@
                     <main>
                         <h1 id="capítulo-05"><a class="header" href="#capítulo-05">Capítulo 05</a></h1>
 <h2 id="exemplos"><a class="header" href="#exemplos">Exemplos</a></h2>
+<h3 id="criação-de-array"><a class="header" href="#criação-de-array">Criação de <code>array</code>.</a></h3>
+<p>Array com tamanho 5 do tipo inteiro, alterando o valor do índice 4 (quinto elemento)</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -178,6 +180,8 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="soma-de-uma-array-do-tipo-float64"><a class="header" href="#soma-de-uma-array-do-tipo-float64">Soma de uma <code>array</code> do tipo <code>float64</code>.</a></h3>
+<p>Inicialização do <code>array</code> com 5 elementos (todos com valor 0), onde cada um é alterado, e depois utilizamos um laço <code>for</code> para percorrer os índices realizando a soma de cada elemento.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -199,6 +203,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="função-len-para-tamanho-de-array"><a class="header" href="#função-len-para-tamanho-de-array">Função <code>len()</code> para tamanho de <code>array</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -220,6 +225,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="percorrendo-elementos-do-array-sem-utilizar-índices"><a class="header" href="#percorrendo-elementos-do-array-sem-utilizar-índices">Percorrendo elementos do <code>array</code> sem utilizar índices.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -241,6 +247,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="iniciando-um-array-já-com-valores"><a class="header" href="#iniciando-um-array-já-com-valores">Iniciando um array já com valores</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -261,6 +268,7 @@ func main() {
 	fmt.Println(total / float64(len(x)))
 }
 </code></pre>
+<h3 id="exemplos-de-formas-diferentes-para-criar-um-array"><a class="header" href="#exemplos-de-formas-diferentes-para-criar-um-array">Exemplos de formas diferentes para criar um <code>array</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -278,6 +286,7 @@ func main() {
 	fmt.Println(txt)
 }
 </code></pre>
+<h3 id="criação-de-fatias-slices"><a class="header" href="#criação-de-fatias-slices">Criação de fatias (<code>slices</code>).</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -292,6 +301,7 @@ func main() {
 	fmt.Println(slice1, slice3)
 }
 </code></pre>
+<h3 id="copiando-conteúdo-de-uma-fatia-para-uma-fatia-menor"><a class="header" href="#copiando-conteúdo-de-uma-fatia-para-uma-fatia-menor">Copiando conteúdo de uma fatia para uma fatia menor.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -303,6 +313,7 @@ func main() {
 	fmt.Println(slice1, slice2)
 }
 </code></pre>
+<h3 id="definição-de-mapas-chavevalor"><a class="header" href="#definição-de-mapas-chavevalor">Definição de mapas (chave/valor).</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -313,6 +324,9 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="acessando-elementos-de-uma-mapa"><a class="header" href="#acessando-elementos-de-uma-mapa">Acessando elementos de uma mapa.</a></h3>
+<p>Em Go, caso a chave que tentamos acessa não exista, nos é retornado um valor vazio correspondente ao tipo do valor. Isto é, <code>&quot;&quot;</code> para strings e <code>0</code> para int.</p>
+<p>Além disso, e possível checar se o elemento realmente não existe com base no segundo valor que nos é retornado, sendo este um booleando (<code>true</code> ou <code>false</code>).</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -340,6 +354,7 @@ func main() {
 	}
 }
 </code></pre>
+<h3 id="definindo-chavesvalor-no-momento-de-criação-dos-mapas"><a class="header" href="#definindo-chavesvalor-no-momento-de-criação-dos-mapas">Definindo chaves/valor no momento de criação dos mapas.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -368,6 +383,7 @@ func main() {
 	}
 }
 </code></pre>
+<h3 id="mapas-que-tem-mapas-como-valores-associados-à-suas-chaves-mapas-de-mapas"><a class="header" href="#mapas-que-tem-mapas-como-valores-associados-à-suas-chaves-mapas-de-mapas">Mapas que tem mapas como valores associados à suas chaves (mapas de mapas).</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;

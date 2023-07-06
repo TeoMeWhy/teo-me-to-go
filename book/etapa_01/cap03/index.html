@@ -168,6 +168,7 @@
                     <main>
                         <h1 id="capítulo-03"><a class="header" href="#capítulo-03">Capítulo 03</a></h1>
 <h2 id="exemplos"><a class="header" href="#exemplos">Exemplos</a></h2>
+<h3 id="como-criamos-variáveis-em-go"><a class="header" href="#como-criamos-variáveis-em-go">Como criamos variáveis em Go:</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -178,6 +179,8 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="alterando-valor-de-da-variável"><a class="header" href="#alterando-valor-de-da-variável">Alterando valor de da variável</a></h3>
+<p>Aqui concatenamos nossa string com outra.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -191,6 +194,8 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="mode-de-inicialização--atribuição"><a class="header" href="#mode-de-inicialização--atribuição">Mode de inicialização + atribuição</a></h3>
+<p>Podemos criar uma variável com <code>:=</code>, ja atribuindo um valor à ela, onde seu tipo é inferido por Go</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -201,6 +206,8 @@ func main() {
 	fmt.Println(x == y)
 }
 </code></pre>
+<h3 id="escopo-de-variável-e-funções"><a class="header" href="#escopo-de-variável-e-funções">Escopo de variável e funções</a></h3>
+<p>A variável <code>x</code> é acessada por <code>f()</code> pois foi definida no escopo global de nosso programa. E não dentro de <code>main()</code>.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -215,6 +222,7 @@ func f() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="definindo-constantes"><a class="header" href="#definindo-constantes">Definindo constantes</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -224,6 +232,7 @@ func main() {
 	fmt.Println(x)
 }
 </code></pre>
+<h3 id="lendo-dados-do-usuário-com-fmtscanf"><a class="header" href="#lendo-dados-do-usuário-com-fmtscanf">Lendo dados do usuário com <code>fmt.Scanf()</code></a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;

@@ -168,6 +168,7 @@
                     <main>
                         <h1 id="capítulo-04"><a class="header" href="#capítulo-04">Capítulo 04</a></h1>
 <h2 id="exemplos"><a class="header" href="#exemplos">Exemplos</a></h2>
+<h3 id="números-de-1-a-10-sem-for"><a class="header" href="#números-de-1-a-10-sem-for">Números de 1 a 10 sem <code>for</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -198,6 +199,7 @@ func main() {
 
 }
 </code></pre>
+<h3 id="números-de-1-a-10-com-for"><a class="header" href="#números-de-1-a-10-com-for">Números de 1 a 10 com <code>for</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -206,10 +208,17 @@ func main() {
 	i := 1
 	for i &lt;= 10 {
 		fmt.Println(i)
-		// i = i + 1
+		i = i + 1
 	}
 }
 </code></pre>
+<h3 id="números-de-1-a-10-com-for-versão-completa"><a class="header" href="#números-de-1-a-10-com-for-versão-completa">Números de 1 a 10 com <code>for</code> versão completa.</a></h3>
+<p>Essa maneira adiciona todos os componentes do laço <code>for</code>:</p>
+<ul>
+<li>inicialização da variável <code>i</code>;</li>
+<li>condição de parada;</li>
+<li>incremento ao final de cada iteração;</li>
+</ul>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -220,6 +229,7 @@ func main() {
 	}
 }
 </code></pre>
+<h3 id="números-pares-e-ímpares-entre-1-e-10-com-for-if-e-else"><a class="header" href="#números-pares-e-ímpares-entre-1-e-10-com-for-if-e-else">Números pares e ímpares entre 1 e 10 com <code>for</code>, <code>if</code> e <code>else</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
@@ -240,6 +250,7 @@ func main() {
 	}
 }
 </code></pre>
+<h3 id="uso-do-switch"><a class="header" href="#uso-do-switch">Uso do <code>switch</code>.</a></h3>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
