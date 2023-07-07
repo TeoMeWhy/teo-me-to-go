@@ -2,7 +2,7 @@
 
 ## Exemplos
 
-### Strings
+### Pacote Strings
 
 Verifica se uma sub string esta contida em uma outra string maior.
 ```go
