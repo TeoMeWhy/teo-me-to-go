@@ -9,6 +9,7 @@
     - [Capítulo 04](./etapa_01/cap04/README.md)
     - [Capítulo 05](./etapa_01/cap05/README.md)
     - [Capítulo 06](./etapa_01/cap06/README.md)
+    - [Capítulo 07](./etapa_01/cap07/README.md)
 - [Etapa 2](./etapa_02/README.md)
 - [Etapa 3](./etapa_03/README.md)
 - [Etapa 4](./etapa_04/README.md)

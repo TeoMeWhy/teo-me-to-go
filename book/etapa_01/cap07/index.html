@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Capítulo 03 - Téo me to Go</title>
+        <title>Capítulo 07 - Téo me to Go</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Início</a></li><li class="chapter-item expanded "><a href="../../etapa_01/index.html"><strong aria-hidden="true">1.</strong> Etapa 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../etapa_01/cap01/index.html"><strong aria-hidden="true">1.1.</strong> Capítulo 01</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap02/index.html"><strong aria-hidden="true">1.2.</strong> Capítulo 02</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap03/index.html" class="active"><strong aria-hidden="true">1.3.</strong> Capítulo 03</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap04/index.html"><strong aria-hidden="true">1.4.</strong> Capítulo 04</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap05/index.html"><strong aria-hidden="true">1.5.</strong> Capítulo 05</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap06/index.html"><strong aria-hidden="true">1.6.</strong> Capítulo 06</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap07/index.html"><strong aria-hidden="true">1.7.</strong> Capítulo 07</a></li></ol></li><li class="chapter-item expanded "><a href="../../etapa_02/index.html"><strong aria-hidden="true">2.</strong> Etapa 2</a></li><li class="chapter-item expanded "><a href="../../etapa_03/index.html"><strong aria-hidden="true">3.</strong> Etapa 3</a></li><li class="chapter-item expanded "><a href="../../etapa_04/index.html"><strong aria-hidden="true">4.</strong> Etapa 4</a></li><li class="chapter-item expanded "><a href="../../etapa_05/index.html"><strong aria-hidden="true">5.</strong> Etapa 5</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Início</a></li><li class="chapter-item expanded "><a href="../../etapa_01/index.html"><strong aria-hidden="true">1.</strong> Etapa 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../etapa_01/cap01/index.html"><strong aria-hidden="true">1.1.</strong> Capítulo 01</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap02/index.html"><strong aria-hidden="true">1.2.</strong> Capítulo 02</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap03/index.html"><strong aria-hidden="true">1.3.</strong> Capítulo 03</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap04/index.html"><strong aria-hidden="true">1.4.</strong> Capítulo 04</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap05/index.html"><strong aria-hidden="true">1.5.</strong> Capítulo 05</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap06/index.html"><strong aria-hidden="true">1.6.</strong> Capítulo 06</a></li><li class="chapter-item expanded "><a href="../../etapa_01/cap07/index.html" class="active"><strong aria-hidden="true">1.7.</strong> Capítulo 07</a></li></ol></li><li class="chapter-item expanded "><a href="../../etapa_02/index.html"><strong aria-hidden="true">2.</strong> Etapa 2</a></li><li class="chapter-item expanded "><a href="../../etapa_03/index.html"><strong aria-hidden="true">3.</strong> Etapa 3</a></li><li class="chapter-item expanded "><a href="../../etapa_04/index.html"><strong aria-hidden="true">4.</strong> Etapa 4</a></li><li class="chapter-item expanded "><a href="../../etapa_05/index.html"><strong aria-hidden="true">5.</strong> Etapa 5</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -166,85 +166,226 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="capítulo-03"><a class="header" href="#capítulo-03">Capítulo 03</a></h1>
+                        <h1 id="capítulo-07"><a class="header" href="#capítulo-07">Capítulo 07</a></h1>
 <h2 id="exemplos"><a class="header" href="#exemplos">Exemplos</a></h2>
-<h3 id="como-criamos-variáveis-em-go"><a class="header" href="#como-criamos-variáveis-em-go">Como criamos variáveis em Go:</a></h3>
+<h3 id="funções-para-cálculo-de-área-por-formato"><a class="header" href="#funções-para-cálculo-de-área-por-formato">Funções para cálculo de área por formato.</a></h3>
 <pre><code class="language-go">package main
 
-import &quot;fmt&quot;
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+func dist(x1, y1, x2, y2 float64) float64 {
+	a := x2 - x1
+	b := y2 - y1
+	return math.Sqrt(a*a + b*b)
+}
+
+func areaRetangulo(x1, y1, x2, y2 float64) float64 {
+	l := dist(x1, y1, x1, y2)
+	w := dist(x1, y1, x2, y1)
+	return l * w
+}
+
+func areaCirculo(x, y, r float64) float64 {
+	return math.Pi * r * r
+}
 
 func main() {
-	var x string      // Definição da variável
-	x = &quot;Olá, mundo!&quot; // Atribuição de valor
-	fmt.Println(x)
+	var rx1, ry1 float64 = 0, 0
+	var rx2, ry2 float64 = 10, 10
+	var cx, cy, cr float64 = 0, 0, 5
+
+	fmt.Println(&quot;Area Retângulo:&quot;, areaRetangulo(rx1, ry1, rx2, ry2))
+	fmt.Println(&quot;Área Círculo:&quot;, areaCirculo(cx, cy, cr))
+
 }
 </code></pre>
-<h3 id="alterando-valor-de-da-variável"><a class="header" href="#alterando-valor-de-da-variável">Alterando valor de da variável</a></h3>
-<p>Aqui concatenamos nossa string com outra.</p>
+<h3 id="estrutura-de-cícuclo-para-cálculo-de-área"><a class="header" href="#estrutura-de-cícuclo-para-cálculo-de-área">Estrutura de cícuclo para cálculo de área.</a></h3>
 <pre><code class="language-go">package main
 
-import &quot;fmt&quot;
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func areaCirculo(c *Circulo) float64 {
+	return math.Pi * c.r * c.r
+}
 
 func main() {
-	var x string
-	x = &quot;primeiro&quot;
-	fmt.Println(x)
 
-	x += &quot;segundo&quot;
-	fmt.Println(x)
+	meuCirculo := Circulo{x: 0, y: 0, r: 5}
+	fmt.Println(meuCirculo)
+	fmt.Println(meuCirculo.x)
+	fmt.Println(meuCirculo.y)
+	fmt.Println(meuCirculo.r)
+
+	meuCirculo.x = 10
+	meuCirculo.y = 15
+
+	fmt.Println(meuCirculo)
+
+	fmt.Println(&quot;Área Círculo:&quot;, areaCirculo(&amp;meuCirculo))
 }
 </code></pre>
-<h3 id="mode-de-inicialização--atribuição"><a class="header" href="#mode-de-inicialização--atribuição">Mode de inicialização + atribuição</a></h3>
-<p>Podemos criar uma variável com <code>:=</code>, ja atribuindo um valor à ela, onde seu tipo é inferido por Go</p>
+<h3 id="implementação-de-métodos-para-os-diferentes-formatos"><a class="header" href="#implementação-de-métodos-para-os-diferentes-formatos">Implementação de métodos para os diferentes formatos.</a></h3>
 <pre><code class="language-go">package main
 
-import &quot;fmt&quot;
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+func dist(x1, y1, x2, y2 float64) float64 {
+	a := x2 - x1
+	b := y2 - y1
+	return math.Sqrt(a*a + b*b)
+}
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func (c *Circulo) area() float64 {
+	return math.Pi * c.r * c.r
+}
+
+type Retangulo struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Retangulo) area() float64 {
+	l := dist(r.x1, r.y1, r.x1, r.y2)
+	w := dist(r.x1, r.y1, r.x2, r.y1)
+	return l * w
+}
 
 func main() {
-	var x string = &quot;Olá,&quot;
-	y := &quot;Olá,&quot;
-	fmt.Println(x == y)
+
+	meuCirculo := Circulo{0, 0, 5}
+	fmt.Println(&quot;Área Cículo:&quot;, meuCirculo.area())
+
+	meuRetangulo := Retangulo{0, 0, 10, 10}
+	fmt.Println(&quot;Área Retângulo:&quot;, meuRetangulo.area())
+
 }
 </code></pre>
-<h3 id="escopo-de-variável-e-funções"><a class="header" href="#escopo-de-variável-e-funções">Escopo de variável e funções</a></h3>
-<p>A variável <code>x</code> é acessada por <code>f()</code> pois foi definida no escopo global de nosso programa. E não dentro de <code>main()</code>.</p>
+<h3 id="campo-anônimo"><a class="header" href="#campo-anônimo">Campo anônimo.</a></h3>
+<p>Desta forma implementamos um campo anônimo para dizer que essa struct <code>é</code> também do tipo do campo, e não <code>contêm</code> o tipo.</p>
+<p>Isso lembra muito herança de POO.</p>
 <pre><code class="language-go">package main
 
 import &quot;fmt&quot;
 
-var x string = &quot;Olá, mundo!&quot;
-
-func main() {
-	fmt.Println(x)
+type Person struct {
+	Name string
 }
 
-func f() {
-	fmt.Println(x)
+func (p *Person) Talk() {
+	fmt.Println(&quot;Olá, meu nome é&quot;, p.Name)
+}
+
+type Robot struct {
+	Serie int
+}
+
+type Androide struct {
+	Person
+	Model string
+}
+
+func main() {
+	meuAndroid := Androide{}
+	meuAndroid.Talk()
 }
 </code></pre>
-<h3 id="definindo-constantes"><a class="header" href="#definindo-constantes">Definindo constantes</a></h3>
+<h3 id="função-variádica-para-área-total-de-vários-círculos"><a class="header" href="#função-variádica-para-área-total-de-vários-círculos">Função variádica para área total de vários círculos.</a></h3>
 <pre><code class="language-go">package main
 
-import &quot;fmt&quot;
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func (c *Circulo) area() float64 {
+	return math.Pi * c.r * c.r
+}
+
+func AreaTotal(c ...Circulo) float64 {
+	total := 0.
+	for _, v := range c {
+		total += v.area()
+	}
+	return total
+}
 
 func main() {
-	const x string = &quot;Olá, mundo!&quot;
-	fmt.Println(x)
+	c1 := Circulo{0, 0, 10}
+	c2 := Circulo{0, 0, 10}
+	fmt.Println(AreaTotal(c1, c2))
 }
 </code></pre>
-<h3 id="lendo-dados-do-usuário-com-fmtscanf"><a class="header" href="#lendo-dados-do-usuário-com-fmtscanf">Lendo dados do usuário com <code>fmt.Scanf()</code></a></h3>
+<h3 id="interfaces-que-implementam-métodos-de-structs"><a class="header" href="#interfaces-que-implementam-métodos-de-structs">Interfaces que implementam métodos de structs.</a></h3>
 <pre><code class="language-go">package main
 
-import &quot;fmt&quot;
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+func dist(x1, y1, x2, y2 float64) float64 {
+	a := x2 - x1
+	b := y2 - y1
+	return math.Sqrt(a*a + b*b)
+}
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func (c *Circulo) area() float64 {
+	return math.Pi * c.r * c.r
+}
+
+type Retangulo struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Retangulo) area() float64 {
+	l := dist(r.x1, r.y1, r.x1, r.y2)
+	w := dist(r.x1, r.y1, r.x2, r.y1)
+	return l * w
+}
+
+type Shape interface {
+	area() float64
+}
+
+func totalArea(shapes ...Shape) float64 {
+	total := 0.
+	for _, v := range shapes {
+		total += v.area()
+	}
+	return total
+}
 
 func main() {
-	fmt.Print(&quot;Entre com um valor: &quot;)
 
-	var a int
-	fmt.Scanf(&quot;%d&quot;, &amp;a)
+	meuCirculo := Circulo{0, 0, 5}
+	meuRetangulo := Retangulo{0, 0, 10, 10}
 
-	res := a * 2
-	fmt.Println(res)
+	fmt.Println(totalArea(&amp;meuCirculo, &amp;meuRetangulo))
+
 }
 </code></pre>
 <hr />
@@ -255,13 +396,10 @@ func main() {
 import &quot;fmt&quot;
 
 func main() {
-	fmt.Println(&quot;Quais são as duas maneiras de criar uma variável nova?&quot;)
-	fmt.Println(`Pode criar variávies a partir de:
-	
-	var x string = &quot;valor&quot;
-ou
+	fmt.Println(&quot;Qual é a diferença entre método e função?&quot;)
 
-	x := &quot;valor&quot;`)
+	fmt.Println(&quot;Métodos são acessados por meio das structs, isto é, uma função do próprio objeto.&quot;)
+	fmt.Println(&quot;Já, funções, não são atreladas à objetos.&quot;)
 }
 </code></pre>
 <h3 id="exercício-02"><a class="header" href="#exercício-02">Exercício 02</a></h3>
@@ -270,63 +408,71 @@ ou
 import &quot;fmt&quot;
 
 func main() {
-	fmt.Println(&quot;Qual é o valor de `x` após a execução de `x:=5; x+=1`?&quot;)
-	x := 5
-	x += 1
-	fmt.Println(x)
+	fmt.Println(&quot;Por que usaríamos um campo anônimo incluído em vez de utilizar um campo normal nomeado?&quot;)
+
+	fmt.Println(&quot;Pois o campo anônimo no dá a propriedade da struct `ser` daquele tipo, e não `ter` o tipo.&quot;)
+	fmt.Println(&quot;Com isso, a struct nova tem acesso aos métodos do campo anônimo.&quot;)
 }
 </code></pre>
 <h3 id="exercício-03"><a class="header" href="#exercício-03">Exercício 03</a></h3>
 <pre><code class="language-go">package main
 
-import &quot;fmt&quot;
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
 
-func main() {
-	fmt.Println(&quot;O que é escopo? Cmo determinamos o escopo de uma variável em Go?&quot;)
-
-	fmt.Println(&quot;É o que define como uma variável, constante ou função pode ser acessada.&quot;)
-	fmt.Println(&quot;Definimos o escopo com base nos {}, tudo que estiver dentro destes, esta contido em um escopo específico.&quot;)
+func dist(x1, y1, x2, y2 float64) float64 {
+	a := x2 - x1
+	b := y2 - y1
+	return math.Sqrt(a*a + b*b)
 }
-</code></pre>
-<h3 id="exercício-04"><a class="header" href="#exercício-04">Exercício 04</a></h3>
-<pre><code class="language-go">package main
 
-import &quot;fmt&quot;
-
-func main() {
-	fmt.Println(&quot;Qual é a diferença entre `var` e `const`?&quot;)
-
-	fmt.Println(&quot;Variáveis podem sofrer alteração de seus valores. Já as constantes, não!&quot;)
+type Circulo struct {
+	x, y, r float64
 }
-</code></pre>
-<h3 id="exercício-05"><a class="header" href="#exercício-05">Exercício 05</a></h3>
-<pre><code class="language-go">package main
 
-import &quot;fmt&quot;
-
-func main() {
-	fmt.Print(&quot;Entre como um valor a ser convertido de Fahrenheit para Celsius: &quot;)
-
-	var f float64
-	fmt.Scanf(&quot;%f&quot;, &amp;f)
-
-	c := (f - 32.) * (5. / 9.)
-	fmt.Println(c)
+func (c *Circulo) area() float64 {
+	return c.r * c.r * math.Pi
 }
-</code></pre>
-<h3 id="exercício-06"><a class="header" href="#exercício-06">Exercício 06</a></h3>
-<pre><code class="language-go">package main
 
-import &quot;fmt&quot;
+func (c *Circulo) perimetro() float64 {
+	return 2 * math.Pi * c.r
+}
+
+type Retangulo struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Retangulo) area() float64 {
+	l := dist(r.x1, r.y1, r.x1, r.y2)
+	w := dist(r.x1, r.y1, r.x2, r.y1)
+	return l * w
+}
+
+func (r *Retangulo) perimetro() float64 {
+	l := dist(r.x1, r.y1, r.x1, r.y2)
+	w := dist(r.x1, r.y1, r.x2, r.y1)
+	return 2 * (l + w)
+}
+
+type Shape interface {
+	area() float64
+	perimetro() float64
+}
 
 func main() {
-	fmt.Print(&quot;Entre com o valor em pés para converter em metros: &quot;)
 
-	var p float64
-	fmt.Scanf(&quot;%f&quot;, &amp;p)
+	c1 := Circulo{0, 0, 10}
+	c2 := Circulo{0, 0, 15}
+	r1 := Retangulo{0, 0, 1, 10}
 
-	m := p * 0.3048
-	fmt.Println(m, &quot;metros&quot;)
+	shapes := []Shape{&amp;c1, &amp;c2, &amp;r1}
+
+	for _, s := range shapes {
+		fmt.Println(s.area())
+	}
+
 }
 </code></pre>
 
@@ -334,11 +480,11 @@ func main() {
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../etapa_01/cap02/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../etapa_01/cap06/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../../etapa_01/cap04/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../../etapa_02/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -348,11 +494,11 @@ func main() {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../etapa_01/cap02/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../etapa_01/cap06/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../../etapa_01/cap04/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../../etapa_02/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Início</a></li><li class="chapter-item expanded "><a href="etapa_01/index.html"><strong aria-hidden="true">1.</strong> Etapa 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="etapa_01/cap01/index.html"><strong aria-hidden="true">1.1.</strong> Capítulo 01</a></li><li class="chapter-item expanded "><a href="etapa_01/cap02/index.html"><strong aria-hidden="true">1.2.</strong> Capítulo 02</a></li><li class="chapter-item expanded "><a href="etapa_01/cap03/index.html"><strong aria-hidden="true">1.3.</strong> Capítulo 03</a></li><li class="chapter-item expanded "><a href="etapa_01/cap04/index.html"><strong aria-hidden="true">1.4.</strong> Capítulo 04</a></li><li class="chapter-item expanded "><a href="etapa_01/cap05/index.html"><strong aria-hidden="true">1.5.</strong> Capítulo 05</a></li><li class="chapter-item expanded "><a href="etapa_01/cap06/index.html"><strong aria-hidden="true">1.6.</strong> Capítulo 06</a></li></ol></li><li class="chapter-item expanded "><a href="etapa_02/index.html"><strong aria-hidden="true">2.</strong> Etapa 2</a></li><li class="chapter-item expanded "><a href="etapa_03/index.html"><strong aria-hidden="true">3.</strong> Etapa 3</a></li><li class="chapter-item expanded "><a href="etapa_04/index.html"><strong aria-hidden="true">4.</strong> Etapa 4</a></li><li class="chapter-item expanded "><a href="etapa_05/index.html"><strong aria-hidden="true">5.</strong> Etapa 5</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Início</a></li><li class="chapter-item expanded "><a href="etapa_01/index.html"><strong aria-hidden="true">1.</strong> Etapa 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="etapa_01/cap01/index.html"><strong aria-hidden="true">1.1.</strong> Capítulo 01</a></li><li class="chapter-item expanded "><a href="etapa_01/cap02/index.html"><strong aria-hidden="true">1.2.</strong> Capítulo 02</a></li><li class="chapter-item expanded "><a href="etapa_01/cap03/index.html"><strong aria-hidden="true">1.3.</strong> Capítulo 03</a></li><li class="chapter-item expanded "><a href="etapa_01/cap04/index.html"><strong aria-hidden="true">1.4.</strong> Capítulo 04</a></li><li class="chapter-item expanded "><a href="etapa_01/cap05/index.html"><strong aria-hidden="true">1.5.</strong> Capítulo 05</a></li><li class="chapter-item expanded "><a href="etapa_01/cap06/index.html"><strong aria-hidden="true">1.6.</strong> Capítulo 06</a></li><li class="chapter-item expanded "><a href="etapa_01/cap07/index.html"><strong aria-hidden="true">1.7.</strong> Capítulo 07</a></li></ol></li><li class="chapter-item expanded "><a href="etapa_02/index.html"><strong aria-hidden="true">2.</strong> Etapa 2</a></li><li class="chapter-item expanded "><a href="etapa_03/index.html"><strong aria-hidden="true">3.</strong> Etapa 3</a></li><li class="chapter-item expanded "><a href="etapa_04/index.html"><strong aria-hidden="true">4.</strong> Etapa 4</a></li><li class="chapter-item expanded "><a href="etapa_05/index.html"><strong aria-hidden="true">5.</strong> Etapa 5</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -1593,6 +1593,315 @@ func main() {
 	y := 2
 	swap(&amp;x, &amp;y)
 	fmt.Println(x, y)
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="capítulo-07"><a class="header" href="#capítulo-07">Capítulo 07</a></h1>
+<h2 id="exemplos-6"><a class="header" href="#exemplos-6">Exemplos</a></h2>
+<h3 id="funções-para-cálculo-de-área-por-formato"><a class="header" href="#funções-para-cálculo-de-área-por-formato">Funções para cálculo de área por formato.</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+func dist(x1, y1, x2, y2 float64) float64 {
+	a := x2 - x1
+	b := y2 - y1
+	return math.Sqrt(a*a + b*b)
+}
+
+func areaRetangulo(x1, y1, x2, y2 float64) float64 {
+	l := dist(x1, y1, x1, y2)
+	w := dist(x1, y1, x2, y1)
+	return l * w
+}
+
+func areaCirculo(x, y, r float64) float64 {
+	return math.Pi * r * r
+}
+
+func main() {
+	var rx1, ry1 float64 = 0, 0
+	var rx2, ry2 float64 = 10, 10
+	var cx, cy, cr float64 = 0, 0, 5
+
+	fmt.Println(&quot;Area Retângulo:&quot;, areaRetangulo(rx1, ry1, rx2, ry2))
+	fmt.Println(&quot;Área Círculo:&quot;, areaCirculo(cx, cy, cr))
+
+}
+</code></pre>
+<h3 id="estrutura-de-cícuclo-para-cálculo-de-área"><a class="header" href="#estrutura-de-cícuclo-para-cálculo-de-área">Estrutura de cícuclo para cálculo de área.</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func areaCirculo(c *Circulo) float64 {
+	return math.Pi * c.r * c.r
+}
+
+func main() {
+
+	meuCirculo := Circulo{x: 0, y: 0, r: 5}
+	fmt.Println(meuCirculo)
+	fmt.Println(meuCirculo.x)
+	fmt.Println(meuCirculo.y)
+	fmt.Println(meuCirculo.r)
+
+	meuCirculo.x = 10
+	meuCirculo.y = 15
+
+	fmt.Println(meuCirculo)
+
+	fmt.Println(&quot;Área Círculo:&quot;, areaCirculo(&amp;meuCirculo))
+}
+</code></pre>
+<h3 id="implementação-de-métodos-para-os-diferentes-formatos"><a class="header" href="#implementação-de-métodos-para-os-diferentes-formatos">Implementação de métodos para os diferentes formatos.</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+func dist(x1, y1, x2, y2 float64) float64 {
+	a := x2 - x1
+	b := y2 - y1
+	return math.Sqrt(a*a + b*b)
+}
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func (c *Circulo) area() float64 {
+	return math.Pi * c.r * c.r
+}
+
+type Retangulo struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Retangulo) area() float64 {
+	l := dist(r.x1, r.y1, r.x1, r.y2)
+	w := dist(r.x1, r.y1, r.x2, r.y1)
+	return l * w
+}
+
+func main() {
+
+	meuCirculo := Circulo{0, 0, 5}
+	fmt.Println(&quot;Área Cículo:&quot;, meuCirculo.area())
+
+	meuRetangulo := Retangulo{0, 0, 10, 10}
+	fmt.Println(&quot;Área Retângulo:&quot;, meuRetangulo.area())
+
+}
+</code></pre>
+<h3 id="campo-anônimo"><a class="header" href="#campo-anônimo">Campo anônimo.</a></h3>
+<p>Desta forma implementamos um campo anônimo para dizer que essa struct <code>é</code> também do tipo do campo, e não <code>contêm</code> o tipo.</p>
+<p>Isso lembra muito herança de POO.</p>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Person struct {
+	Name string
+}
+
+func (p *Person) Talk() {
+	fmt.Println(&quot;Olá, meu nome é&quot;, p.Name)
+}
+
+type Robot struct {
+	Serie int
+}
+
+type Androide struct {
+	Person
+	Model string
+}
+
+func main() {
+	meuAndroid := Androide{}
+	meuAndroid.Talk()
+}
+</code></pre>
+<h3 id="função-variádica-para-área-total-de-vários-círculos"><a class="header" href="#função-variádica-para-área-total-de-vários-círculos">Função variádica para área total de vários círculos.</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func (c *Circulo) area() float64 {
+	return math.Pi * c.r * c.r
+}
+
+func AreaTotal(c ...Circulo) float64 {
+	total := 0.
+	for _, v := range c {
+		total += v.area()
+	}
+	return total
+}
+
+func main() {
+	c1 := Circulo{0, 0, 10}
+	c2 := Circulo{0, 0, 10}
+	fmt.Println(AreaTotal(c1, c2))
+}
+</code></pre>
+<h3 id="interfaces-que-implementam-métodos-de-structs"><a class="header" href="#interfaces-que-implementam-métodos-de-structs">Interfaces que implementam métodos de structs.</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+func dist(x1, y1, x2, y2 float64) float64 {
+	a := x2 - x1
+	b := y2 - y1
+	return math.Sqrt(a*a + b*b)
+}
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func (c *Circulo) area() float64 {
+	return math.Pi * c.r * c.r
+}
+
+type Retangulo struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Retangulo) area() float64 {
+	l := dist(r.x1, r.y1, r.x1, r.y2)
+	w := dist(r.x1, r.y1, r.x2, r.y1)
+	return l * w
+}
+
+type Shape interface {
+	area() float64
+}
+
+func totalArea(shapes ...Shape) float64 {
+	total := 0.
+	for _, v := range shapes {
+		total += v.area()
+	}
+	return total
+}
+
+func main() {
+
+	meuCirculo := Circulo{0, 0, 5}
+	meuRetangulo := Retangulo{0, 0, 10, 10}
+
+	fmt.Println(totalArea(&amp;meuCirculo, &amp;meuRetangulo))
+
+}
+</code></pre>
+<hr />
+<h2 id="exercícios-6"><a class="header" href="#exercícios-6">Exercícios</a></h2>
+<h3 id="exercício-01-6"><a class="header" href="#exercício-01-6">Exercício 01</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Qual é a diferença entre método e função?&quot;)
+
+	fmt.Println(&quot;Métodos são acessados por meio das structs, isto é, uma função do próprio objeto.&quot;)
+	fmt.Println(&quot;Já, funções, não são atreladas à objetos.&quot;)
+}
+</code></pre>
+<h3 id="exercício-02-6"><a class="header" href="#exercício-02-6">Exercício 02</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;Por que usaríamos um campo anônimo incluído em vez de utilizar um campo normal nomeado?&quot;)
+
+	fmt.Println(&quot;Pois o campo anônimo no dá a propriedade da struct `ser` daquele tipo, e não `ter` o tipo.&quot;)
+	fmt.Println(&quot;Com isso, a struct nova tem acesso aos métodos do campo anônimo.&quot;)
+}
+</code></pre>
+<h3 id="exercício-03-6"><a class="header" href="#exercício-03-6">Exercício 03</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+func dist(x1, y1, x2, y2 float64) float64 {
+	a := x2 - x1
+	b := y2 - y1
+	return math.Sqrt(a*a + b*b)
+}
+
+type Circulo struct {
+	x, y, r float64
+}
+
+func (c *Circulo) area() float64 {
+	return c.r * c.r * math.Pi
+}
+
+func (c *Circulo) perimetro() float64 {
+	return 2 * math.Pi * c.r
+}
+
+type Retangulo struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Retangulo) area() float64 {
+	l := dist(r.x1, r.y1, r.x1, r.y2)
+	w := dist(r.x1, r.y1, r.x2, r.y1)
+	return l * w
+}
+
+func (r *Retangulo) perimetro() float64 {
+	l := dist(r.x1, r.y1, r.x1, r.y2)
+	w := dist(r.x1, r.y1, r.x2, r.y1)
+	return 2 * (l + w)
+}
+
+type Shape interface {
+	area() float64
+	perimetro() float64
+}
+
+func main() {
+
+	c1 := Circulo{0, 0, 10}
+	c2 := Circulo{0, 0, 15}
+	r1 := Retangulo{0, 0, 1, 10}
+
+	shapes := []Shape{&amp;c1, &amp;c2, &amp;r1}
+
+	for _, s := range shapes {
+		fmt.Println(s.area())
+	}
+
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="etapa-2"><a class="header" href="#etapa-2">Etapa 2</a></h1>
