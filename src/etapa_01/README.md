@@ -1,4 +1,4 @@
-# Fundamentos do GoLang
+# Etapa 1: Fundamentos do GoLang
 
 Novamente, com ajuda do chatGPT, seguindo o prompt inicial, executamos:
 

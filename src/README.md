@@ -1,6 +1,8 @@
 # Téo Me To Go
 
-Seja bem-vindo(a) à minha trilha de estudos para GoLang, meu desejo é aprender sobre backend estudando esta linguagem. Para alcançár este objetivo, montei este material de estudos junto ao chatGPT, segue o prompt utilizados:
+> Caso prefira navegar nos arquivos, acesse [github.com/teomewhy/teo-me-to-go](https://github.com/teomewhy/teo-me-to-go) e confira nosso projeto.
+
+Seja bem-vindo(a) à minha trilha de estudos para GoLang, meu desejo é aprender sobre backend estudando esta linguagem. Para alcançar este objetivo, montei este material de estudos junto ao chatGPT, segue o prompt utilizados:
 
 ```
 Desejo me tornar um desenvolvedor backend.
