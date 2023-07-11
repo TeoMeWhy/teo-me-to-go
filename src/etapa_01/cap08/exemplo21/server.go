@@ -1,11 +1,9 @@
 package main
 
 import (
-	"bufio"
 	"encoding/gob"
 	"fmt"
 	"net"
-	"os"
 )
 
 func server(ln net.Listener) {
@@ -34,37 +32,6 @@ func handleServerConnection(c net.Conn) {
 	c.Close()
 }
 
-func client(msg string) {
-	// conecta-se ao servidor
-
-	c, err := net.Dial("tcp", "127.0.0.1:9999")
-	if err != nil {
-		fmt.Println(err, "\nDeu merda aqui na hora de tentar conexão com o server")
-		return
-	}
-
-	fmt.Println("Enviando...", msg)
-	err = gob.NewEncoder(c).Encode(msg)
-	if err != nil {
-		fmt.Println("err")
-	}
-
-	c.Close()
-}
-
-func ReadMsg() {
-	for {
-
-		input := bufio.NewReader(os.Stdin)
-
-		msg, err := input.ReadString('\n')
-		if msg == "" || err != nil {
-			return
-		}
-		client(msg)
-	}
-}
-
 func main() {
 
 	// ouve uma porta
@@ -75,5 +42,7 @@ func main() {
 	}
 
 	go server(ln)
-	ReadMsg()
+
+	var input string
+	fmt.Scanln(&input)
 }
