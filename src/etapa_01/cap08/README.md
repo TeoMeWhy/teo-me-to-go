@@ -49,6 +49,8 @@ Colocar uma string em caixa alta ou caixa baixa.
 {{#include exemplo09/main.go}}
 ```
 
+### Pacote os e dir
+
 Lendo arquivos de texto com os.Open
 ```go
 {{#include exemplo10/main.go}}
@@ -69,10 +71,14 @@ Uso do filepath.Walk par navegar em subdiretórios
 {{#include exemplo13/main.go}}
 ```
 
+### Pacote de erros
+
 Lançamento de um erro novo
 ```go
 {{#include exemplo14/main.go}}
 ```
+
+### List
 
 Listas encadeadas, duplamente ligadas
 ```go
@@ -89,7 +95,9 @@ Ordenando fatias de objetos com base em atributos (Age)
 {{#include exemplo17/main.go}}
 ```
 
-Hashs
+### Hash
+
+Hash simples
 ```go
 {{#include exemplo18/main.go}}
 ```
@@ -103,6 +111,8 @@ Hash com sha1
 ```go
 {{#include exemplo20/main.go}}
 ```
+
+### Protocolos
 
 Cliente e Servidor TCP
 ```go
