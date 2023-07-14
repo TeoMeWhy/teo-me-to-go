@@ -531,6 +531,86 @@ func main() {
 	fmt.Scanln(&amp;input)
 }
 </code></pre>
+<hr />
+<h2 id="exercícios"><a class="header" href="#exercícios">Exercícios</a></h2>
+<h3 id="exercício-01"><a class="header" href="#exercício-01">Exercício 01</a></h3>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func printer(ch &lt;-chan string) {
+	fmt.Println(&quot;Esta função só recebe do canal ch. Isso acontece por conta da direção explicitada na assintura da função.&quot;)
+	return
+}
+
+func pinger(ch chan&lt;- string) {
+	fmt.Println(&quot;Esta função só envia para canal ch. Isso acontece por conta da direção explicitada na assinatura da função.&quot;)
+}
+
+func main() {
+	fmt.Println(&quot;Como especificamos a direção de um tipo de canal?&quot;)
+	fmt.Println(&quot;Utilizando o operador &lt;-&quot;)
+}
+</code></pre>
+<h3 id="exercício-02"><a class="header" href="#exercício-02">Exercício 02</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;time&quot;
+)
+
+func Sleep(t int) {
+	select {
+	case &lt;-time.After(time.Second * time.Duration(t)):
+		return
+	}
+}
+
+func main() {
+
+	for i := 1; i &lt;= 10; i++ {
+		fmt.Println(i)
+		Sleep(2)
+	}
+
+}
+</code></pre>
+<h3 id="exercício-03"><a class="header" href="#exercício-03">Exercício 03</a></h3>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
+
+func main() {
+	fmt.Println(&quot;O que é um canal com buffer? Como você criaria um com capacidade igual a 20?&quot;)
+
+	ch := make(chan int, 20)
+
+	go func() {
+
+		for {
+			ch &lt;- rand.Intn(10)
+			fmt.Println(&quot;Enviando dados...&quot;)
+		}
+	}()
+
+	go func() {
+		for {
+			msg := &lt;-ch
+			fmt.Println(msg)
+			time.Sleep(time.Second * 2)
+		}
+	}()
+
+	var input string
+	fmt.Scanln(&amp;input)
+
+}
+</code></pre>
 
                     </main>
 
