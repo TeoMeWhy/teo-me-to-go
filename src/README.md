@@ -26,15 +26,11 @@ Utilizaremos o livro [Introdução à Linguagem Go - Crie programas escaláveis 
 
 **Desafio de Projeto: Criar uma aplicação CLI (Command Line Interface)** Crie uma aplicação de linha de comando simples que realiza uma tarefa específica, como calcular estatísticas básicas em um conjunto de dados ou converter unidades de medida. Isso ajudará a aplicar os conceitos básicos aprendidos e a familiarizar-se com a sintaxe e a estrutura do Go.
 
-## Etapa 2: Trabalhando com Pacotes e Gerenciamento de Dependências (não iniciada)
+## Etapa 2: Entendendo algoritmos
 
-- Aprenda a usar pacotes em Go e a importar pacotes de terceiros.
-- Explore o gerenciamento de dependências usando um gerenciador como o `go mod`.
-- Recursos recomendados:
-    - [How to Write Go Code](https://golang.org/doc/code.html): Um guia oficial sobre como estruturar projetos em Go e usar pacotes.
-    - [Go Modules](https://blog.golang.org/using-go-modules): Um artigo do blog oficial do Go que explica como usar o `go mod` para gerenciar dependências.
+Vamos seguir os estudos de Go Lang a partir od livro [Entendendo algoritmos - Um guia ilustrado para programadores e outros curiosos, Aditya Y. Bhargava](https://amzn.to/3YtSVux).
 
-**Desafio de Projeto: Criar uma API REST Simples** Implemente uma API REST básica que ofereça funcionalidades como criação, leitura, atualização e exclusão (CRUD) de recursos. Use um framework web como o Gin ou o Echo para facilitar o desenvolvimento da API.
+Nossa motivação é entender e implementar os algoritmos abordados pelo livro, fixando assim conceitos não só da sintaxe de Go, mas aplicando conhecimentos voltados à computação que podem ser utilizado em desafios no mercado de trabalho.
 
 ## Etapa 3: Concorrência e Paralelismo (não iniciada)
 
