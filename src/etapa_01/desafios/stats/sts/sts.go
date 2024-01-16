@@ -39,7 +39,7 @@ func MedianFloat64(x []float64) float64 {
 	sort.Float64s(x)
 
 	if len(x)%2 == 0 {
-		return (x[len(x)/2] + x[len(x)/2+1]) / 2.
+		return (x[len(x)/2] + x[len(x)/2-1]) / 2.
 	} else {
 		return x[len(x)/2+1]
 	}
